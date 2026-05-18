@@ -1,0 +1,38 @@
+name: Scheduled Paper Watch
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  paper-watch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests feedparser python-dateutil
+
+      - name: Run paper watch
+        run: |
+          python scripts/paper_watch.py
+
+      - name: Commit updates
+        run: |
+          git config user.name "paper-watch-bot"
+          git config user.email "paper-watch-bot@users.noreply.github.com"
+          git add reports index memory
+          git commit -m "Update paper watch report" || echo "No changes to commit"
+          git push
