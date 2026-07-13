@@ -26,3 +26,236 @@
 - 异常与限制：
   - 搜索结果中“character generation”噪声较多，常混入泛角色一致性、故事视频和 3D 资产生成工作。
   - 对 GitHub “今天新建仓库”的精确过滤较弱，因此本次更依赖论文页、项目页与官方仓库交叉确认。
+
+## 2026-06-01
+
+- 运行目标：汇总 2026-05-25 至 2026-06-01 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion 角色控制与 Live2D 相关论文和代码更新。
+- 主要来源：
+  - arXiv
+  - Hugging Face Papers
+  - GitHub
+  - RunComfy workflow pages
+  - 项目主页、GitHub topics、awesome / 索引页
+- 关键词覆盖：
+  - text-to-Live2D
+  - Live2D generation
+  - anime character generation diffusion
+  - text-to-character generation
+  - layered character generation
+  - animatable character generation
+  - controllable character editing diffusion
+  - character consistency Stable Diffusion
+  - IP-Adapter / LoRA / ControlNet character
+  - pose-guided / reference-guided character generation
+  - image-to-rig character
+  - 2D avatar generation diffusion
+- 本次结论：
+  - 过去一周内可确认新增的高相关论文为 MRT，它是通用多层透明图像生成 / 编辑框架，不是角色专用，但对 Text-to-Live2D 中间表示很关键。
+  - See-through 出现成熟 ComfyUI 社区封装和 RunComfy 工作流，作为已记录项目的重要生态更新。
+  - 补录 AnimeAdapter 与 RealDiffusion；二者公开于 5 月中旬，不属于本周首次公开，但尚未进入历史记录，且对动漫角色一致性 / 多角色一致性有价值。
+- 异常与限制：
+  - arXiv API 在容器内被 403 拒绝，因此本次主要依赖 web search、arXiv 页面和 Hugging Face Papers 页面交叉确认。
+  - Live2D 关键词噪声极高，很多结果是 AI VTuber / companion 渲染工具，不属于生成式角色建模。
+
+## 2026-06-08
+
+- 运行目标：汇总 2026-06-01 至 2026-06-08 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion 角色控制与 Live2D 相关论文和代码更新。
+- 主要来源：
+  - arXiv
+  - OpenReview
+  - GitHub / GitHub connector
+  - Hugging Face
+  - 项目主页
+  - ComfyUI / See-through 生态仓库
+- 关键词覆盖：
+  - text-to-Live2D
+  - Live2D generation
+  - anime character generation diffusion
+  - text-to-character generation
+  - cartoon character generation Stable Diffusion
+  - layered character generation
+  - animatable character generation
+  - controllable character editing diffusion
+  - character consistency Stable Diffusion
+  - IP-Adapter / LoRA / ControlNet character
+  - pose-guided / reference-guided character generation
+  - image-to-rig character
+  - 2D avatar generation diffusion
+- 本次结论：
+  - 过去一周未发现可确认的 3 分及以上新增核心论文或官方代码。
+  - 将 Textoon 作为历史核心基线补录进索引，因为它是当前 Text-to-Live2D 主线最直接的端到端参考项目。
+  - See-through 生态出现/确认多条实用工具链：ComfyUI 插件、Windows WebUI、Stretchy Studio 自动 rig / 动画工具。
+  - AvatarMix 和 Anime-Ready 保留在待确认，避免把 3D avatar / 3D anime character 工作误判为 2D / Live2D 主线。
+- 异常与限制：
+  - 容器内直接 git 访问 GitHub 被 403 CONNECT 阻断，因此代码状态主要通过 GitHub connector、网页 README 和搜索结果交叉确认。
+  - 搜索结果中大量 Live2D / AI VTuber 项目仅加载现有模型进行聊天、语音或口型同步，不生成角色模型或分层素材，已排除。
+
+## 2026-06-15
+
+- 运行目标：汇总 2026-06-08 至 2026-06-15 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion 角色控制、可动画化角色与 Live2D 相关论文和代码更新。
+- 主要来源：
+  - arXiv
+  - Hugging Face Papers
+  - Papers with Code
+  - GitHub / GitHub connector
+  - 项目主页
+  - 已记录项目 README 与代码状态复查
+- 关键词覆盖：
+  - text-to-Live2D
+  - Live2D generation
+  - anime character generation diffusion
+  - text-to-character generation
+  - cartoon character generation Stable Diffusion
+  - layered character generation
+  - animatable character generation
+  - controllable character editing diffusion
+  - character consistency Stable Diffusion
+  - IP-Adapter / LoRA / ControlNet character
+  - pose-guided / reference-guided character generation
+  - image-to-rig character
+  - 2D avatar generation diffusion
+  - talking avatar diffusion
+- 本次结论：
+  - 本周可确认新增的 3 分及以上项目为 SCAIL-2。它不是 Text-to-Live2D 或分层生成，但官方开源推理代码和权重，直接面向参考角色 + 驱动视频的可控角色动画。
+  - 未发现新的直接 Text-to-Live2D / Live2D 分层动漫角色生成核心论文。
+  - AnimeAdapter 与 MRT 仍未发现官方代码、权重或 demo。
+  - Lip Forcing、AnimaSpark、Hallo-Live / StreamChar 属于 talking avatar / 3D animation / audio-video character 支线，暂不纳入核心新发现。
+- 异常与限制：
+  - 容器内直接 curl GitHub API 仍被 403 CONNECT 阻断；代码状态主要通过 GitHub connector、网页搜索、项目页和 README 内容交叉确认。
+  - SCAIL-2 项目页 BibTeX 年份显示为 2025，但 arXiv 页面和检索结果均显示 2026-06-09 / 2026-06-10 公开；本次以 arXiv 日期为准。
+
+## 2026-06-22
+
+- 运行目标：汇总 2026-06-15 至 2026-06-22 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion / ControlNet / LoRA / IP-Adapter 角色控制与 Live2D 相关论文和代码更新。
+- 主要来源：
+  - arXiv cs.CV recent / new / 搜索结果
+  - Hugging Face Papers
+  - GitHub / GitHub connector
+  - awesome-video-diffusions 等论文索引
+  - 官方 GitHub README 和项目页
+- 关键词覆盖：
+  - text-to-Live2D
+  - Live2D generation
+  - anime character generation diffusion
+  - text-to-character generation
+  - cartoon character generation Stable Diffusion
+  - layered character generation
+  - animatable character generation
+  - controllable character editing diffusion
+  - character consistency Stable Diffusion
+  - IP-Adapter / LoRA / ControlNet character
+  - pose-guided / reference-guided character generation
+  - image-to-rig character
+  - 2D avatar generation diffusion
+  - talking avatar diffusion
+- 本次结论：
+  - 本周可确认新增的 3 分及以上项目为 SketchKeyAnime。它不是 Text-to-Live2D 或分层建模，但直接面向动漫参考图 + 稀疏关键草图的可控动画生成。
+  - 未发现新的直接 Text-to-Live2D / Live2D 分层动漫角色生成核心论文或官方代码。
+  - FreeStyle 作为 LoRA mining + 双参考生成的通用开源项目进入待确认；Avatar V 作为 talking avatar / video-reference avatar 生成支线进入待确认。
+  - AnimeAdapter、MRT、Textoon、See-through、SCAIL-2 未发现需要单列的重大新增代码/权重变化。
+- 异常与限制：
+  - SketchKeyAnime 未发现官方项目页、GitHub、Demo 或权重。
+  - FreeStyle 虽然开源完整，但不是角色专用，按相关性规则未放入新发现。
+  - Avatar V 的 arXiv 日期为 2026-06-11，位于本周窗口之外，保守作为待确认补录。
+
+## 2026-06-29
+
+- 运行目标：汇总 2026-06-22 至 2026-06-29 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion / ControlNet / LoRA / IP-Adapter 角色控制与 Live2D 相关论文和代码更新。
+- 主要来源：
+  - arXiv
+  - Hugging Face Papers
+  - GitHub / GitHub connector
+  - Human3DAIGC 项目主页和 GitHub 组织页
+  - 项目主页、ResearchGate 镜像结果、SIGGRAPH 2026 项目页
+- 关键词覆盖：
+  - text-to-Live2D
+  - Live2D generation
+  - anime character generation diffusion
+  - text-to-character generation
+  - cartoon character generation Stable Diffusion
+  - layered character generation
+  - animatable character generation
+  - controllable character editing diffusion
+  - character consistency Stable Diffusion
+  - IP-Adapter / LoRA / ControlNet character
+  - pose-guided / reference-guided character generation
+  - image-to-rig character
+  - 2D avatar generation diffusion
+  - character animation diffusion
+  - layered diffusion video editing
+- 本次结论：
+  - 过去一周未发现可确认的 3 分及以上新增核心论文或官方代码。
+  - 将 CartoonAlive 作为历史核心基线补录进索引；它直接面向 single portrait to expressive Live2D modeling，与 Textoon 互补。
+  - AnimeAdapter 已在 2026-06-20 更新到 v2，标题改为 “A Modular Adapter for Appearance-Consistent Anime Character Generation”，但仍未发现代码、权重或数据集发布。
+  - Vera、L2MAS、NanoLive2D、ContextAnyone、Go-with-the-Track 已加入待确认；其中 Vera 偏通用分层视频编辑，L2MAS / NanoLive2D 偏工程工具链，ContextAnyone 是旧论文官方占位仓库，Go-with-the-Track 偏视频合成与运动控制。
+- 异常与限制：
+  - CartoonAlive 官方仓库目前只有 README 和 assets，未发现完整推理 / 训练代码。
+  - L2MAS 是早期原型，README 明确当前主要是 deterministic mock MVP 和 local FFmpeg smoke path，尚不能当作可用 Text-to-Live2D 生成模型。
+  - GitHub 搜索仍有噪声，大量 Live2D 项目只是加载现有模型做聊天、口型或桌宠，不生成角色模型或分层素材。
+
+## 2026-07-06
+
+- 运行目标：汇总 2026-06-29 至 2026-07-06 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion / ControlNet / LoRA / IP-Adapter 角色控制与 Live2D 相关论文和代码更新。
+- 主要来源：
+  - arXiv
+  - Hugging Face Papers
+  - ACM Digital Library / DBLP / 作者主页
+  - GitHub / GitHub connector
+  - See-through、Textoon、CartoonAlive、Visual Persona、Anime2.5DRig、Paper Doll Studio README 和近期 commit
+- 关键词覆盖：
+  - text-to-Live2D
+  - Live2D generation
+  - anime character generation diffusion
+  - text-to-character generation
+  - cartoon character generation Stable Diffusion
+  - layered character generation
+  - animatable character generation
+  - controllable character editing diffusion
+  - character consistency Stable Diffusion
+  - IP-Adapter / LoRA / ControlNet character
+  - pose-guided / reference-guided character generation
+  - image-to-rig character
+  - 2D avatar generation diffusion
+  - talking avatar diffusion
+- 本次结论：
+  - 过去一周未发现新的直接 Text-to-Live2D / image-to-Live2D / 动漫分层角色生成论文。
+  - 补录 Visual Persona；它不是 Live2D 专用，但官方开源推理代码和权重，支持 full-body identity preservation、pose-guided generation、ControlNet story generation、try-on 和 anime / character customization。
+  - See-through 出现两条重要生态更新：新增 AMD ROCm 安装说明，以及将 Anime2.5DRig 加入 community support。Anime2.5DRig 可将 See-through 分层 PSD 自动 rig 成 2.5D avatar。
+  - Paper Doll Studio、Outline and Detail、SyncCache、FacePlex、InterTalk、GaussianEmoTalker 已加入待确认。
+- 异常与限制：
+  - UIST 2025 的 Outline and Detail 暂未找到开放全文或代码，不能确认是否使用 Stable Diffusion / LDM 或支持 Live2D。
+  - 本周 talking avatar 论文很多，但大多偏 3D / real-human portrait / audio-driven face motion，按相关性规则只保留为 2/5 待确认。
+  - AnimeAdapter、CartoonAlive 本周未发现实质代码开放。
+
+## 2026-07-13
+
+- 运行目标：汇总 2026-07-06 至 2026-07-13 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion / ControlNet / LoRA / IP-Adapter 角色控制与 Live2D 相关论文和代码更新。
+- 主要来源：
+  - arXiv
+  - Hugging Face Papers
+  - GitHub / GitHub connector
+  - DreamShot、Vidu S1、See-through、Textoon、CartoonAlive、Live2D Automation README
+  - 项目主页与 Hugging Face model 页面入口
+- 关键词覆盖：
+  - text-to-Live2D
+  - Live2D generation
+  - anime character generation diffusion
+  - text-to-character generation
+  - cartoon character generation Stable Diffusion
+  - layered character generation
+  - animatable character generation
+  - controllable character editing diffusion
+  - character consistency Stable Diffusion
+  - IP-Adapter / LoRA / ControlNet character
+  - pose-guided / reference-guided character generation
+  - image-to-rig character
+  - 2D avatar generation diffusion
+  - real-time interactive avatar generation
+- 本次结论：
+  - 本周未发现新的直接 Text-to-Live2D / Live2D 分层动漫角色生成核心论文。
+  - 新纳入主索引的 3 分及以上项目为 DreamShot。它不是 Live2D 主线，但 v2 于 2026-07-06 修订并标注 CVPR 2026 Highlight，官方推理代码和模型权重已公开，适合作为多镜头角色一致性支线参考。
+  - Vidu S1、DreamCharacter-1、Live2D Automation MCP Server 进入待人工确认，分别代表实时交互 avatar、3D 角色资产、Live2D 自动化 PoC 支线。
+  - See-through、Textoon、CartoonAlive 本轮无新的重大代码 / 权重发布；See-through 仍是自动分层和工具链生态最活跃的开源基线。
+- 异常与限制：
+  - 容器内 arXiv API 请求仍因 403 被阻断，因此主要依赖网页搜索、arXiv 页面、Hugging Face Papers 和 GitHub README 交叉确认。
+  - GitHub 搜索返回大量聊天 / 桌宠 / Live2D runtime 项目，已排除未生成角色模型或分层素材的结果。
