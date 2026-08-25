@@ -18,6 +18,7 @@ Formal corpus identities only. Supplemental versions and pending candidates are 
 - `icml-2023-consistency-models` — Consistency Models
 - `siggraph-2023-draggan` — Drag Your GAN: Interactive Point-based Manipulation on the Generative Image Manifold
 - `iclr-2024-sdxl` — SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis
+- `eccv-2024-brushnet` — BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion
 - `icml-2024-scaling-rectified-flow-transformers` — Scaling Rectified Flow Transformers for High-Resolution Image Synthesis
 - `cvpr-2024-photomaker` — PhotoMaker: Customizing Realistic Human Photos via Stacked ID Embedding
 - `siggraph-2024-layerdiffuse` — Transparent Image Layer Diffusion using Latent Transparency

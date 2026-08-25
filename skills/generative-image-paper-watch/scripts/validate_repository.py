@@ -29,6 +29,7 @@ AUTHORITATIVE_HOSTS = (
     "3dvconf.org",
     "3dvconf.github.io",
     "ieee.org",
+    "ecva.net",
     "eurographics.org",
     "eg.org",
 )

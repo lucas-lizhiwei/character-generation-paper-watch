@@ -56,7 +56,7 @@ Each count is the candidate's first retained query-family cell after cross-query
 | --- | --- | ---: | ---: | ---: | --- |
 | CVPR | `openaccess.thecvf.com`; `thecvf.com` | 6 formal | 3 formal + 1 excluded | 1 formal | 10 formal; NeIn excluded as workshop-only |
 | ICCV | `openaccess.thecvf.com`; `thecvf.com` | 1 formal | 1 formal | 1 formal | 3 formal |
-| ECCV | `ecva.net/papers.php`; `eurographics.org` | 0 | 1 pending | 0 named | BrushNet pending because official ECVA host is outside the current validator allowlist; adjacent 3D/video results screened qualitatively |
+| ECCV | `ecva.net/papers.php`; `eccv.ecva.net`; `eurographics.org` | 0 | 1 formal | 0 named | BrushNet passed ECVA authoritative-proceedings, main-track, relevance, and deduplication checks; adjacent 3D/video results screened qualitatively |
 | NeurIPS | `proceedings.neurips.cc` | 2 formal | 0 | 0 | 2 formal |
 | ICML | `proceedings.mlr.press`; `icml.cc` | 3 formal | 0 | 0 | 3 formal |
 | ICLR | `iclr.cc/virtual`; `openreview.net/group?id=ICLR.cc` | 5 formal + 2 pending | 4 excluded | 0 | 5 formal; 2 submission-only pending; 4 withdrawn/desk-rejected |
@@ -68,7 +68,7 @@ Named cell assignments for auditability:
 
 - CVPR Q1 (6): Taming Transformers; Latent Diffusion Models; InstructPix2Pix; OmniGen; PixelDiT; HiCoGen. CVPR Q2 (4): DreamBooth; PhotoMaker; Diffusion Self-Distillation; NeIn (excluded workshop). CVPR Q3 (1): Language-Free Generative Editing.
 - ICCV Q1 (1): Scalable Diffusion Models with Transformers. ICCV Q2 (1): ControlNet. ICCV Q3 (1): Layered Diffusion Brushes.
-- ECCV Q2 (1): BrushNet (pending).
+- ECCV Q2 (1): BrushNet (formal).
 - NeurIPS Q1 (2): DDPM; EDM.
 - ICML Q1 (3): Improved DDPM; Consistency Models; Scaling Rectified Flow Transformers.
 - ICLR Q1 (7): Score SDE; SDEdit; Flow Matching; SDXL; SANA; Test-Time Evolutionary Search (pending); OneFlow (pending). ICLR Q2 (4): Rethinking Prompt Design (withdrawn); InstructMoLE (desk rejected); TIIF-Bench (withdrawn); CoTDiff (withdrawn).
@@ -77,17 +77,17 @@ Named cell assignments for auditability:
 
 #### Retrieval, verification, and screening counts
 
-- 37 uniquely named candidates were retained for individual identity/status screening: 26 admitted, 6 pending, and 5 individually named exclusions. Two additional broad exclusion classes—adjacent 3D/avatar/video-only results and retired Live2D scope—were recorded qualitatively rather than given misleading record counts.
-- The 26 admitted papers were each matched to one authoritative accepted main-track record: CVF Open Access 13, NeurIPS proceedings 2, PMLR 3, ICLR official program/proceedings 5, and SIGGRAPH/ACM official records 3.
-- Six candidates failed to reach formal admission and stayed pending: three model/report families without an allowed formal version, one ECCV host-contract mismatch, and two ICLR submissions without accepted status.
+- 37 uniquely named candidates were retained for individual identity/status screening: 27 admitted, 5 pending, and 5 individually named exclusions. Two additional broad exclusion classes—adjacent 3D/avatar/video-only results and retired Live2D scope—were recorded qualitatively rather than given misleading record counts.
+- The 27 admitted papers were each matched to one authoritative accepted main-track record: CVF Open Access 13, ECVA ECCV proceedings/poster 1, NeurIPS proceedings 2, PMLR 3, ICLR official program/proceedings 5, and SIGGRAPH/ACM official records 3.
+- Five candidates failed to reach formal admission and stayed pending: three model/report families without an allowed formal version and two ICLR submissions without accepted status.
 - Five individually named candidates were excluded after status/track verification: three withdrawn, one desk-rejected, and one workshop-only.
-- Exact identifier/title/alias/repository comparison reduced the 26 admitted records to 26 unique method identities; no admitted duplicate was removed after final matching.
-- All 26 formal records received a supplemental link/code-status pass at collection time. Review correction on the same date directly revalidated four official repositories: TencentARC/PhotoMaker, primecai/diffusion-self-distillation, NVlabs/PixelDiT, and omarAlezaby/VDC.
+- Exact identifier/title/alias/repository comparison reduced the 27 admitted records to 27 unique method identities; no admitted duplicate was removed after final matching.
+- All 27 formal records received a supplemental link/code-status pass at collection time. Review correction on the same date directly revalidated four official repositories: TencentARC/PhotoMaker, primecai/diffusion-self-distillation, NVlabs/PixelDiT, and omarAlezaby/VDC.
 
 ### Authoritative sources consulted
 
 - CVPR and ICCV: CVF Open Access main-conference paper pages.
-- ECCV: official ECVA proceedings pages were searched; a validator authority-host mismatch prevented one otherwise supported candidate from entering the formal index.
+- ECCV: official ECVA proceedings and ECCV poster pages were used to establish the accepted main-conference identity of BrushNet.
 - NeurIPS: official proceedings abstract pages.
 - ICML: official PMLR proceedings pages.
 - ICLR: official conference virtual-program/proceedings pages; OpenReview identities were used where the authoritative record was accessible and unambiguous.
@@ -96,9 +96,9 @@ Named cell assignments for auditability:
 
 ### Screening and decisions
 
-- Admitted 26 unique formal records: 2020 (1), 2021 (3), 2022 (4), 2023 (7), 2024 (4), 2025 (4), and 2026 (3).
-- Formal venue coverage: CVPR (10), ICCV (3), ICLR (5), ICML (3), NeurIPS (2), and SIGGRAPH (3).
-- Held 6 candidates in the non-formal pending queue because acceptance or validator-compatible authority evidence was incomplete.
+- Admitted 27 unique formal records: 2020 (1), 2021 (3), 2022 (4), 2023 (7), 2024 (5), 2025 (4), and 2026 (3).
+- Formal venue coverage: CVPR (10), ICCV (3), ECCV (1), ICLR (5), ICML (3), NeurIPS (2), and SIGGRAPH (3).
+- Held 5 candidates in the non-formal pending queue because acceptance evidence was incomplete.
 - Recorded 7 notable exclusion categories, including withdrawn, desk-rejected, workshop-only, and below-threshold adjacent work.
 - Deduplicated using DOI/OpenReview/venue/arXiv identifiers first, then normalized titles and aliases, author/method identity, and official repository identity. The SD3/MMDiT family appears once through its ICML 2024 formal paper.
 
@@ -106,7 +106,6 @@ Named cell assignments for auditability:
 
 - Direct OpenReview API/page retrieval intermittently returned access-denied or browser-challenge responses. Official ICLR program/proceedings pages were used when they independently established the accepted conference identity; unresolved submissions remained pending or excluded.
 - Direct ACM Digital Library DOI retrieval returned bot-protection responses in this environment. Paper-specific ACM DOI records were retained as official proceedings identities where applicable, and official SIGGRAPH program/accepted-paper pages independently cross-checked the titles and venue placement.
-- ECCV's official `ecva.net` host is absent from the current validator authority allowlist. BrushNet was therefore held pending instead of weakening or bypassing the deterministic gate.
 - Searches with no selected result are not evidence that a venue/topic has no relevant literature; they only mean no candidate cleared every gate in this curated run.
 
 ### Reproducibility boundary
@@ -123,3 +122,9 @@ Named cell assignments for auditability:
 - PixelDiT: official repository `NVlabs/PixelDiT` checked; class-to-image and text-to-image training/inference plus pretrained models are released. Classified `official_full`.
 - Language-Free Generative Editing/VDC: official repository `omarAlezaby/VDC` checked; the full training-free method release contains steering-condition optimization and both inference paths. Classified `official_full`.
 - DragGAN acceptance evidence now points to its paper-specific ACM proceedings DOI; the SIGGRAPH full program remains an independent cross-check.
+
+### 2026-08-25 review correction — ECVA authority and BrushNet
+
+- Added the narrow `ecva.net` authoritative-host suffix after a RED/GREEN validator test confirmed that it accepts `eccv.ecva.net` while rejecting lookalike and unrelated hosts.
+- The official ECCV 2024 ECVA poster record `https://eccv.ecva.net/virtual/2024/poster/1434` establishes BrushNet's title, six authors, year, and poster/main-conference identity; its linked official ECVA paper PDF independently matches the title and authors.
+- BrushNet passed the allowed-venue, main-track, relevance (4/5), and deduplication gates. arXiv and the official TencentARC repository were used only for supplemental identifier and implementation-status metadata.

@@ -1115,6 +1115,80 @@
       "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
     },
     {
+      "id": "eccv-2024-brushnet",
+      "title": "BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion",
+      "aliases": [
+        "BrushNet"
+      ],
+      "authors": [
+        "Xuan Ju",
+        "Xian Liu",
+        "Xintao Wang",
+        "Yuxuan Bian",
+        "Ying Shan",
+        "Qiang Xu"
+      ],
+      "year": 2024,
+      "venue": "ECCV",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "ECCV2024-1434",
+        "arxiv": "2403.06976"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://eccv.ecva.net/virtual/2024/poster/1434"
+      },
+      "urls": {
+        "paper": "https://eccv.ecva.net/virtual/2024/poster/1434",
+        "arxiv": "https://arxiv.org/abs/2403.06976",
+        "project": "https://tencentarc.github.io/BrushNet/",
+        "code": "https://github.com/TencentARC/BrushNet",
+        "demo": "",
+        "model": "",
+        "dataset": ""
+      },
+      "topics": [
+        "image inpainting",
+        "diffusion",
+        "controllable generation"
+      ],
+      "tasks": [
+        "text-guided image inpainting"
+      ],
+      "architectures": [
+        "dual-branch diffusion model",
+        "U-Net"
+      ],
+      "base_models": [
+        "Stable Diffusion",
+        "SDXL"
+      ],
+      "training_methods": [
+        "decomposed dual-branch diffusion"
+      ],
+      "conditioning_methods": [
+        "masked image",
+        "text conditioning"
+      ],
+      "relevance_score": 4,
+      "relevance_rationale": "Transferable plug-and-play dual-branch diffusion method for text-guided image inpainting across pretrained image generators.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official repository provides training, inference, and evaluation scripts with released checkpoints and accompanying benchmark resources.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-25",
+      "dedupe_keys": [
+        "title:brushnet a plug and play image inpainting model with decomposed dual branch diffusion",
+        "arxiv:2403.06976",
+        "venue:ECCV2024-1434",
+        "code:TencentARC/BrushNet"
+      ],
+      "report_path": "reports/2026-08-25.md",
+      "notes": "Verified: title, authors, year, ECCV 2024 poster/main-conference identity, and authoritative proceedings URL from the official ECVA ECCV page. Supplemental verification: the official TencentARC repository identifies itself as the ECCV 2024 implementation and provides training, inference, and evaluation materials. Inference: taxonomy and relevance score were assigned during this run."
+    },
+    {
       "id": "icml-2024-scaling-rectified-flow-transformers",
       "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
       "aliases": [

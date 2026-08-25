@@ -123,6 +123,30 @@ def test_rejects_non_authoritative_acceptance_evidence(repository_factory):
     assert any("non-authoritative acceptance evidence" in error for error in validate_repository(root))
 
 
+def test_accepts_official_ecva_eccv_proceedings_and_rejects_lookalikes(repository_factory):
+    root, paper, write_repository = repository_factory
+    paper["venue"] = "ECCV"
+    paper["acceptance_evidence"] = {"type": "official_proceedings", "url": ""}
+
+    for url in (
+        "https://eccv.ecva.net/virtual/2024/poster/1434",
+        "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03014.pdf",
+    ):
+        paper["acceptance_evidence"]["url"] = url
+        write_repository()
+
+        assert validate_repository(root) == []
+
+    for url in (
+        "https://ecva.net.example.org/virtual/2024/poster/1434",
+        "https://example.org/virtual/2024/poster/1434",
+    ):
+        paper["acceptance_evidence"]["url"] = url
+        write_repository()
+
+        assert any("non-authoritative acceptance evidence" in error for error in validate_repository(root))
+
+
 def test_rejects_openreview_evidence_claimed_on_a_proceedings_host(repository_factory):
     root, paper, write_repository = repository_factory
     paper["acceptance_evidence"] = {

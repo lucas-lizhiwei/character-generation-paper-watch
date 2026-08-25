@@ -17,11 +17,6 @@ These candidates are non-formal. None may enter the corpus until an allowed main
 - Current evidence: arXiv, project, and repository materials; these cannot establish formal eligibility.
 - Needed: an accepted main-track record at an allowed venue, plus a duplicate/version audit.
 
-## BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion
-
-- Current evidence: an ECCV 2024 ECVA proceedings page supports publication, but `ecva.net` is not in the repository validator's authoritative-host allowlist.
-- Needed: reconcile the validator contract with the official ECCV proceedings host, then rerun identity, scoring, and deduplication checks. The evidence gate was not weakened for this run.
-
 ## Scaling Image and Video Generation via Test-Time Evolutionary Search
 
 - Current evidence: ICLR 2026 submission record found; accepted main-track status was not established.
