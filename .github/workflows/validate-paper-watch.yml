@@ -1,0 +1,33 @@
+name: Validate Paper Watch
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install validation dependencies
+        run: pip install pytest jsonschema
+
+      - name: Validate formal corpus
+        run: python skills/generative-image-paper-watch/scripts/validate_repository.py --repo .
+
+      - name: Run tests
+        run: python -m pytest -v
