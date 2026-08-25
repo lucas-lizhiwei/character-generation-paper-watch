@@ -5,11 +5,12 @@ Read this reference for discovery, refresh, identity resolution, and repository 
 ## Discovery and verification
 
 1. Read the schema, formal index, seen list, pending list, run notes, and current report.
-2. Build a venue × year × topic query matrix. Cover all nine allowed venues and relevant families such as diffusion/latent diffusion, flow matching/rectified flow, text-to-image, editing, DiT/MMDiT, personalization/LoRA/adapters, ControlNet, reference conditioning/IP-Adapter, layers, relighting, compositing, harmonization, and shadows.
-3. Search official venue and proceedings surfaces first. Record literal query strings, hosts/endpoints, date and year range, per-cell outcomes, and candidate counts that have a defined counting basis.
-4. Verify accepted main-track identity before enrichment. Put unresolved candidates in pending.
-5. Enrich eligible identities from arXiv, project, official repository, model, demo, and dataset pages. Distinguish source-verified facts from curator inference.
-6. Deduplicate, score relevance, write all artifacts, then validate.
+2. Apply the user's explicit topic, date, and year filters before formal classification. When fewer formal records qualify than requested, return the qualifying set, state the shortfall, and list relevant pending items separately.
+3. Build a venue × year × topic query matrix. Cover all nine allowed venues and relevant families such as diffusion/latent diffusion, flow matching/rectified flow, text-to-image, editing, DiT/MMDiT, personalization/LoRA/adapters, ControlNet, reference conditioning/IP-Adapter, layers, relighting, compositing, harmonization, and shadows.
+4. Search official venue and proceedings surfaces first. Record literal query strings, hosts/endpoints, date and year range, per-cell outcomes, and candidate counts that have a defined counting basis.
+5. Verify accepted main-track identity before enrichment. Put unresolved candidates in pending.
+6. Enrich eligible identities from arXiv, project, official repository, model, demo, and dataset pages. Distinguish source-verified facts from curator inference.
+7. Deduplicate, score relevance, write all artifacts, then validate.
 
 Log blocked or failed sources and the fallback used. A zero-result cell means only that no retained candidate cleared the stated screening in that run; it is not proof that the venue or topic has no relevant work. Do not claim systematic completeness unless the search design supports it.
 
