@@ -12,7 +12,7 @@
     }
   },
   "$defs": {
-    "url": {"type": "string", "format": "uri"},
+    "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
     "optional_url": {"anyOf": [{"const": ""}, {"$ref": "#/$defs/url"}]},
     "paper": {
       "type": "object",

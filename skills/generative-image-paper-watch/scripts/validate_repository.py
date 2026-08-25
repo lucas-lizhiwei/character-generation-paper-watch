@@ -7,7 +7,7 @@ import json
 import re
 import unicodedata
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -33,6 +33,71 @@ AUTHORITATIVE_HOSTS = (
     "eurographics.org",
     "eg.org",
 )
+EVIDENCE_URL_RULES = {
+    ("CVPR", "official_proceedings"): (
+        (r"openaccess\.thecvf\.com", r"/content/CVPR\d{4}/html/.+_CVPR_\d{4}_paper\.html"),
+    ),
+    ("CVPR", "official_program"): (
+        (r"cvpr\.thecvf\.com", r"/virtual/\d{4}/poster/\d+/?"),
+    ),
+    ("ICCV", "official_proceedings"): (
+        (r"openaccess\.thecvf\.com", r"/content/ICCV\d{4}/html/.+_ICCV_\d{4}_paper\.html"),
+    ),
+    ("ICCV", "official_program"): (
+        (r"iccv\.thecvf\.com", r"/virtual/\d{4}/poster/\d+/?"),
+    ),
+    ("ECCV", "official_proceedings"): (
+        (r"eccv\.ecva\.net", r"/virtual/\d{4}/poster/\d+/?"),
+        (r"(?:www\.)?ecva\.net", r"/papers/eccv_\d{4}/.+\.(?:html|pdf)"),
+    ),
+    ("ECCV", "official_program"): (
+        (r"eccv\.ecva\.net", r"/virtual/\d{4}/poster/\d+/?"),
+    ),
+    ("NeurIPS", "official_proceedings"): (
+        (
+            r"proceedings\.neurips\.cc",
+            r"/(?:paper/\d{4}|paper_files/paper/\d{4})/hash/[^/]+-Abstract(?:-Conference)?\.html",
+        ),
+    ),
+    ("NeurIPS", "official_program"): (
+        (r"neurips\.cc", r"/virtual/\d{4}/poster/\d+/?"),
+    ),
+    ("ICML", "official_proceedings"): (
+        (r"proceedings\.mlr\.press", r"/v\d+/[^/]+\.html"),
+    ),
+    ("ICML", "official_program"): (
+        (r"icml\.cc", r"/virtual/\d{4}/poster/\d+/?"),
+    ),
+    ("ICLR", "official_proceedings"): (
+        (
+            r"proceedings\.iclr\.cc",
+            r"/paper_files/paper/\d{4}/hash/[^/]+-Abstract-Conference\.html",
+        ),
+    ),
+    ("ICLR", "official_program"): (
+        (r"iclr\.cc", r"/virtual/\d{4}/poster/\d+/?"),
+    ),
+    ("SIGGRAPH", "official_proceedings"): (
+        (r"dl\.acm\.org", r"/doi/10\.1145/\d+(?:\.\d+)?"),
+    ),
+    ("SIGGRAPH", "official_program"): (
+        (r"s\d{4}\.siggraph\.org", r"/.+technical-papers-accepted\.pdf"),
+    ),
+    ("SIGGRAPH Asia", "official_proceedings"): (
+        (r"dl\.acm\.org", r"/doi/10\.1145/\d+(?:\.\d+)?"),
+    ),
+    ("SIGGRAPH Asia", "official_program"): (
+        (r"asia\.siggraph\.org", r"/\d{4}/program/technical-papers(?:/.*)?"),
+    ),
+    ("3DV", "official_proceedings"): (
+        (r"openaccess\.thecvf\.com", r"/content/3DV\d{4}/html/.+_3DV_\d{4}_paper\.html"),
+        (r"ieeexplore\.ieee\.org", r"/document/\d+/?"),
+    ),
+    ("3DV", "official_program"): (
+        (r"3dvconf\.github\.io", r"/\d{4}/program/(?:papers|technical-papers)(?:\.html|/.*)"),
+    ),
+}
+OPENREVIEW_VENUES = frozenset({"ICLR"})
 
 
 def _path_text(path: object) -> str:
@@ -62,6 +127,31 @@ def _is_openreview_url(value: object) -> bool:
     return hostname == "openreview.net" or hostname.endswith(".openreview.net")
 
 
+def _is_openreview_forum_url(value: object) -> bool:
+    if not isinstance(value, str):
+        return False
+    parsed = urlparse(value)
+    return (
+        parsed.scheme in {"http", "https"}
+        and (parsed.hostname or "").lower().rstrip(".") == "openreview.net"
+        and parsed.path.rstrip("/") == "/forum"
+        and bool(parse_qs(parsed.query).get("id", [""])[0])
+    )
+
+
+def _matches_venue_evidence_url(venue: object, evidence_type: object, value: object) -> bool:
+    if not all(isinstance(item, str) for item in (venue, evidence_type, value)):
+        return False
+    parsed = urlparse(value)
+    hostname = (parsed.hostname or "").lower().rstrip(".")
+    rules = EVIDENCE_URL_RULES.get((venue, evidence_type), ())
+    return any(
+        re.fullmatch(host_pattern, hostname, flags=re.IGNORECASE)
+        and re.fullmatch(path_pattern, parsed.path, flags=re.IGNORECASE)
+        for host_pattern, path_pattern in rules
+    )
+
+
 def _load_json(path: Path, label: str, errors: list[str]) -> object | None:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -76,12 +166,18 @@ def _schema_errors(schema: object, document: object) -> list[str]:
     if not isinstance(schema, dict):
         return ["schema/papers.schema.json: schema must be a JSON object"]
     try:
+        Draft202012Validator.check_schema(schema)
         validator = Draft202012Validator(schema, format_checker=FormatChecker())
+        validation_errors = list(validator.iter_errors(document))
     except Exception as exc:  # Invalid external schema must not crash the CLI.
-        return [f"schema/papers.schema.json: invalid schema: {exc.message if hasattr(exc, 'message') else exc}"]
+        detail = " ".join(str(getattr(exc, "message", exc)).split())
+        return [f"schema/papers.schema.json: invalid schema: {detail}"]
     return [
         f"schema: {_path_text(error.absolute_path)}: {error.message}"
-        for error in sorted(validator.iter_errors(document), key=lambda error: (list(error.absolute_path), error.message))
+        for error in sorted(
+            validation_errors,
+            key=lambda error: (list(error.absolute_path), error.message),
+        )
     ]
 
 
@@ -157,13 +253,26 @@ def _cross_record_errors(repo_root: Path, document: object) -> list[str]:
             errors.append(f"{prefix}.acceptance_evidence: arXiv-only acceptance evidence is not eligible")
         elif not _is_authoritative_url(evidence_url):
             errors.append(f"{prefix}.acceptance_evidence.url: non-authoritative acceptance evidence")
-        elif evidence_type == "openreview_accepted" and not _is_openreview_url(evidence_url):
-            errors.append(
-                f"{prefix}.acceptance_evidence: openreview_accepted evidence must use openreview.net"
-            )
+        elif evidence_type == "openreview_accepted":
+            if not _is_openreview_url(evidence_url):
+                errors.append(
+                    f"{prefix}.acceptance_evidence: openreview_accepted evidence must use openreview.net"
+                )
+            elif venue not in OPENREVIEW_VENUES:
+                errors.append(
+                    f"{prefix}.acceptance_evidence: openreview_accepted evidence is not supported for {venue}"
+                )
+            elif not _is_openreview_forum_url(evidence_url):
+                errors.append(
+                    f"{prefix}.acceptance_evidence: openreview_accepted evidence must use an openreview.net/forum?id=... record"
+                )
         elif evidence_type in {"official_proceedings", "official_program"} and _is_openreview_url(evidence_url):
             errors.append(
                 f"{prefix}.acceptance_evidence: {evidence_type} evidence must use a conference or proceedings host"
+            )
+        elif not _matches_venue_evidence_url(venue, evidence_type, evidence_url):
+            errors.append(
+                f"{prefix}.acceptance_evidence: {evidence_type} URL does not match the {venue} venue evidence contract"
             )
 
         report_path = paper.get("report_path")

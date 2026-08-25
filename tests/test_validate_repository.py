@@ -1,5 +1,6 @@
 import copy
 import importlib.util
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -123,6 +124,117 @@ def test_rejects_non_authoritative_acceptance_evidence(repository_factory):
     assert any("non-authoritative acceptance evidence" in error for error in validate_repository(root))
 
 
+@pytest.mark.parametrize(
+    ("venue", "url"),
+    [
+        (
+            "NeurIPS",
+            "https://openaccess.thecvf.com/content/CVPR2025/html/Researcher_Layered_Light_Control_CVPR_2025_paper.html",
+        ),
+        (
+            "CVPR",
+            "https://proceedings.neurips.cc/paper_files/paper/2025/hash/abc-Abstract-Conference.html",
+        ),
+    ],
+)
+def test_rejects_cross_venue_official_evidence(repository_factory, venue, url):
+    root, paper, write_repository = repository_factory
+    paper["venue"] = venue
+    paper["acceptance_evidence"] = {"type": "official_proceedings", "url": url}
+    write_repository()
+
+    assert any(
+        "acceptance_evidence" in error and "venue" in error
+        for error in validate_repository(root)
+    )
+
+
+def test_rejects_openreview_evidence_for_an_unsupported_venue(repository_factory):
+    root, paper, write_repository = repository_factory
+    paper["acceptance_evidence"] = {
+        "type": "openreview_accepted",
+        "url": "https://openreview.net/forum?id=layered-light-control",
+    }
+    write_repository()
+
+    assert any(
+        "openreview_accepted" in error and "CVPR" in error
+        for error in validate_repository(root)
+    )
+
+
+def test_accepts_a_supported_openreview_forum_record(repository_factory):
+    root, paper, write_repository = repository_factory
+    paper["venue"] = "ICLR"
+    paper["acceptance_evidence"] = {
+        "type": "openreview_accepted",
+        "url": "https://openreview.net/forum?id=layered-light-control",
+    }
+    write_repository()
+
+    assert validate_repository(root) == []
+
+
+def test_rejects_an_unrecognizable_openreview_path(repository_factory):
+    root, paper, write_repository = repository_factory
+    paper["venue"] = "ICLR"
+    paper["acceptance_evidence"] = {
+        "type": "openreview_accepted",
+        "url": "https://openreview.net/group?id=ICLR.cc/Conference/2025",
+    }
+    write_repository()
+
+    assert any(
+        "openreview_accepted" in error and "forum" in error
+        for error in validate_repository(root)
+    )
+
+
+@pytest.mark.parametrize(
+    ("venue", "evidence_type", "url"),
+    [
+        (
+            "NeurIPS",
+            "official_proceedings",
+            "https://proceedings.neurips.cc/paper/2020/hash/abc-Abstract.html",
+        ),
+        ("ICLR", "official_program", "https://iclr.cc/virtual/2024/poster/18250"),
+        (
+            "ICLR",
+            "official_proceedings",
+            "https://proceedings.iclr.cc/paper_files/paper/2025/hash/abc-Abstract-Conference.html",
+        ),
+        ("ICML", "official_proceedings", "https://proceedings.mlr.press/v235/esser24a.html"),
+        (
+            "CVPR",
+            "official_proceedings",
+            "https://openaccess.thecvf.com/content/CVPR2025/html/Researcher_Layered_Light_Control_CVPR_2025_paper.html",
+        ),
+        (
+            "ICCV",
+            "official_proceedings",
+            "https://openaccess.thecvf.com/content/ICCV2025/html/Researcher_Layered_Light_Control_ICCV_2025_paper.html",
+        ),
+        ("ECCV", "official_proceedings", "https://eccv.ecva.net/virtual/2024/poster/1434"),
+        (
+            "SIGGRAPH",
+            "official_program",
+            "https://s2022.siggraph.org/wp-content/uploads/2022/05/SIGGRAPH-2022-TECHNICAL-PAPERS-ACCEPTED.pdf",
+        ),
+        ("SIGGRAPH", "official_proceedings", "https://dl.acm.org/doi/10.1145/3658150"),
+    ],
+)
+def test_accepts_current_corpus_evidence_classes(
+    repository_factory, venue, evidence_type, url
+):
+    root, paper, write_repository = repository_factory
+    paper["venue"] = venue
+    paper["acceptance_evidence"] = {"type": evidence_type, "url": url}
+    write_repository()
+
+    assert validate_repository(root) == []
+
+
 def test_accepts_official_ecva_eccv_proceedings_and_rejects_lookalikes(repository_factory):
     root, paper, write_repository = repository_factory
     paper["venue"] = "ECCV"
@@ -167,6 +279,58 @@ def test_rejects_a_missing_referenced_report(repository_factory):
     write_repository()
 
     assert any("report_path" in error for error in validate_repository(root))
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("paper", "file:///tmp/paper.pdf"),
+        ("project", "javascript:alert('paper')"),
+        ("code", "ftp://example.org/paper-code"),
+    ],
+)
+def test_rejects_non_web_schemes_in_required_and_optional_links(
+    repository_factory, field, value
+):
+    root, paper, write_repository = repository_factory
+    paper["urls"][field] = value
+    write_repository()
+
+    assert any(f"urls.{field}" in error for error in validate_repository(root))
+
+
+@pytest.mark.parametrize(
+    ("malformed_schema", "expected_detail"),
+    [
+        ({"type": 7}, "7 is not valid"),
+        ({"$ref": "#/$defs/missing"}, "/$defs/missing"),
+    ],
+    ids=["schema-checking", "error-iteration"],
+)
+def test_malformed_schema_returns_actionable_api_and_cli_errors(
+    repository_factory, malformed_schema, expected_detail
+):
+    root, _paper, _write_repository = repository_factory
+    (root / "schema" / "papers.schema.json").write_text(
+        json.dumps(malformed_schema), encoding="utf-8"
+    )
+
+    errors = validate_repository(root)
+    assert len(errors) == 1
+    assert errors[0].startswith("schema/papers.schema.json: invalid schema:")
+    assert expected_detail in errors[0]
+
+    failure = subprocess.run(
+        [sys.executable, str(VALIDATOR_SCRIPT), "--repo", str(root)],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    output = failure.stdout + failure.stderr
+    assert failure.returncode == 1
+    assert "schema/papers.schema.json: invalid schema:" in output
+    assert expected_detail in output
+    assert "Traceback" not in output
 
 
 def test_cli_reports_success_and_actionable_validation_failures(repository_factory):
