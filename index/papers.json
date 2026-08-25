@@ -1132,7 +1132,7 @@
       "venue": "ECCV",
       "track": "main",
       "identifiers": {
-        "doi": "",
+        "doi": "10.1007/978-3-031-72661-3_9",
         "openreview": "",
         "venue": "ECCV2024-1434",
         "arxiv": "2403.06976"
@@ -1181,6 +1181,7 @@
       "last_verified_date": "2026-08-25",
       "dedupe_keys": [
         "title:brushnet a plug and play image inpainting model with decomposed dual branch diffusion",
+        "doi:10.1007/978-3-031-72661-3_9",
         "arxiv:2403.06976",
         "venue:ECCV2024-1434",
         "code:TencentARC/BrushNet"
