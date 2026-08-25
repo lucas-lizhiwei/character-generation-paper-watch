@@ -123,6 +123,20 @@ def test_rejects_non_authoritative_acceptance_evidence(repository_factory):
     assert any("non-authoritative acceptance evidence" in error for error in validate_repository(root))
 
 
+def test_rejects_openreview_evidence_claimed_on_a_proceedings_host(repository_factory):
+    root, paper, write_repository = repository_factory
+    paper["acceptance_evidence"] = {
+        "type": "openreview_accepted",
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/paper.html",
+    }
+    write_repository()
+
+    assert any(
+        "openreview_accepted" in error and "openreview.net" in error
+        for error in validate_repository(root)
+    )
+
+
 def test_rejects_a_missing_referenced_report(repository_factory):
     root, paper, write_repository = repository_factory
     paper["report_path"] = "reports/missing.md"

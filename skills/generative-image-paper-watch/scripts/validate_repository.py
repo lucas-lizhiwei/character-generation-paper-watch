@@ -54,6 +54,13 @@ def _is_authoritative_url(value: object) -> bool:
     return any(hostname == host or hostname.endswith(f".{host}") for host in AUTHORITATIVE_HOSTS)
 
 
+def _is_openreview_url(value: object) -> bool:
+    if not isinstance(value, str):
+        return False
+    hostname = (urlparse(value).hostname or "").lower().rstrip(".")
+    return hostname == "openreview.net" or hostname.endswith(".openreview.net")
+
+
 def _load_json(path: Path, label: str, errors: list[str]) -> object | None:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
@@ -149,6 +156,14 @@ def _cross_record_errors(repo_root: Path, document: object) -> list[str]:
             errors.append(f"{prefix}.acceptance_evidence: arXiv-only acceptance evidence is not eligible")
         elif not _is_authoritative_url(evidence_url):
             errors.append(f"{prefix}.acceptance_evidence.url: non-authoritative acceptance evidence")
+        elif evidence_type == "openreview_accepted" and not _is_openreview_url(evidence_url):
+            errors.append(
+                f"{prefix}.acceptance_evidence: openreview_accepted evidence must use openreview.net"
+            )
+        elif evidence_type in {"official_proceedings", "official_program"} and _is_openreview_url(evidence_url):
+            errors.append(
+                f"{prefix}.acceptance_evidence: {evidence_type} evidence must use a conference or proceedings host"
+            )
 
         report_path = paper.get("report_path")
         if not isinstance(report_path, str) or not report_path.strip():
