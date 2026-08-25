@@ -989,8 +989,8 @@
         "arxiv": "2305.10973"
       },
       "acceptance_evidence": {
-        "type": "official_program",
-        "url": "https://s2023.siggraph.org/full-program/"
+        "type": "official_proceedings",
+        "url": "https://dl.acm.org/doi/10.1145/3588432.3591500"
       },
       "urls": {
         "paper": "https://dl.acm.org/doi/10.1145/3588432.3591500",
@@ -1035,7 +1035,7 @@
         "code:XingangPan/DragGAN"
       ],
       "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative SIGGRAPH source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "notes": "Verified: title, authors, year, venue, main-conference identity, and DOI from the paper-specific ACM proceedings record; the official SIGGRAPH program was an independent cross-check. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
     },
     {
       "id": "iclr-2024-sdxl",
@@ -1256,8 +1256,8 @@
       ],
       "relevance_score": 4,
       "relevance_rationale": "Reusable reference-conditioned personalization method for realistic human photo generation.",
-      "code_status": "official_full",
-      "implementation_coverage": "Official inference, training, and released-model integration.",
+      "code_status": "official_inference_only",
+      "implementation_coverage": "Official repository provides the PhotoMaker inference pipeline, local demos, and released adapter weights; it does not provide the paper's training code.",
       "first_seen_date": "2026-08-25",
       "last_verified_date": "2026-08-25",
       "dedupe_keys": [
@@ -1267,7 +1267,7 @@
         "code:TencentARC/PhotoMaker"
       ],
       "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official TencentARC repository documents inference and released adapter weights but no training code. Inference: taxonomy and relevance score were assigned during this run."
     },
     {
       "id": "siggraph-2024-layerdiffuse",
@@ -1523,7 +1523,7 @@
         "paper": "https://openaccess.thecvf.com/content/CVPR2025/html/Cai_Diffusion_Self-Distillation_for_Zero-Shot_Customized_Image_Generation_CVPR_2025_paper.html",
         "arxiv": "https://arxiv.org/abs/2411.18616",
         "project": "",
-        "code": "",
+        "code": "https://github.com/primecai/diffusion-self-distillation",
         "demo": "",
         "model": "",
         "dataset": ""
@@ -1553,17 +1553,18 @@
       ],
       "relevance_score": 4,
       "relevance_rationale": "Transferable reference-conditioned customization method that self-generates its paired training data.",
-      "code_status": "not_found",
-      "implementation_coverage": "No official implementation was confirmed in this run.",
+      "code_status": "official_inference_only",
+      "implementation_coverage": "Official repository provides subject-preserving inference and pretrained weights; training code and the relighting model are not released.",
       "first_seen_date": "2026-08-25",
       "last_verified_date": "2026-08-25",
       "dedupe_keys": [
         "title:diffusion self distillation for zero shot customized image generation",
         "arxiv:2411.18616",
-        "venue:Cai_2025_CVPR"
+        "venue:Cai_2025_CVPR",
+        "code:primecai/diffusion-self-distillation"
       ],
       "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official repository releases subject-preserving inference and weights, while training code and relighting remain unreleased. Inference: taxonomy and relevance score were assigned during this run."
     },
     {
       "id": "iccv-2025-layered-diffusion-brushes",
@@ -1666,9 +1667,9 @@
         "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Yu_PixelDiT_Pixel_Diffusion_Transformers_for_Image_Generation_CVPR_2026_paper.html",
         "arxiv": "https://arxiv.org/abs/2511.20645",
         "project": "",
-        "code": "",
+        "code": "https://github.com/NVlabs/PixelDiT",
         "demo": "",
-        "model": "",
+        "model": "https://huggingface.co/nvidia/PixelDiT-1300M-1024px",
         "dataset": ""
       },
       "topics": [
@@ -1693,17 +1694,18 @@
       ],
       "relevance_score": 5,
       "relevance_rationale": "Core end-to-end pixel-space diffusion-transformer architecture eliminating a separate autoencoder.",
-      "code_status": "not_found",
-      "implementation_coverage": "No official implementation was confirmed in this run.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official repository provides training and inference for class-to-image and text-to-image PixelDiT, plus pretrained ImageNet and 1024px text-to-image checkpoints.",
       "first_seen_date": "2026-08-25",
       "last_verified_date": "2026-08-25",
       "dedupe_keys": [
         "title:pixeldit pixel diffusion transformers for image generation",
         "arxiv:2511.20645",
-        "venue:Yu_2026_CVPR"
+        "venue:Yu_2026_CVPR",
+        "code:NVlabs/PixelDiT"
       ],
       "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official NVlabs repository releases class-to-image and text-to-image training, inference, and pretrained models. Inference: taxonomy and relevance score were assigned during this run."
     },
     {
       "id": "cvpr-2026-language-free-generative-editing",
@@ -1735,7 +1737,7 @@
         "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Elezabi_Language-Free_Generative_Editing_from_One_Visual_Example_CVPR_2026_paper.html",
         "arxiv": "https://arxiv.org/abs/2603.25441",
         "project": "https://omaralezaby.github.io/vdc/",
-        "code": "",
+        "code": "https://github.com/omarAlezaby/VDC",
         "demo": "",
         "model": "",
         "dataset": ""
@@ -1763,18 +1765,19 @@
       ],
       "relevance_score": 4,
       "relevance_rationale": "General-purpose training-free editing framework that derives conditions directly from visual examples.",
-      "code_status": "unclear",
-      "implementation_coverage": "Official project page verified; repository coverage was not confirmed in this run.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official full release includes one-shot steering-condition optimization, inference with and without inversion correction, experimental data and optimized conditions, and SANA integration for the training-free method.",
       "first_seen_date": "2026-08-25",
       "last_verified_date": "2026-08-25",
       "dedupe_keys": [
         "title:language free generative editing from one visual example",
         "arxiv:2603.25441",
         "venue:Elezabi_2026_CVPR",
-        "project:vdc"
+        "project:vdc",
+        "code:omarAlezaby/VDC"
       ],
       "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official VDC repository labels a full code release and documents condition optimization plus both inference paths; the method itself is training-free. Inference: taxonomy and relevance score were assigned during this run."
     },
     {
       "id": "cvpr-2026-hicogen",
