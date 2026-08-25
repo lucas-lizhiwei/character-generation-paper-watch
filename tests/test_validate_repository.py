@@ -42,6 +42,16 @@ def test_rejects_forbidden_venue(repository_factory):
     assert any("forbidden venue" in error for error in validate_repository(root))
 
 
+def test_rejects_an_allowed_venue_when_its_track_is_not_main(repository_factory):
+    root, paper, write_repository = repository_factory
+    paper["track"] = "workshop"
+    write_repository()
+
+    assert any(
+        "track" in error and "main" in error for error in validate_repository(root)
+    )
+
+
 def test_rejects_relevance_score_below_three(repository_factory):
     root, paper, write_repository = repository_factory
     paper["relevance_score"] = 2
