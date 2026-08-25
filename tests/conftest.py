@@ -8,16 +8,11 @@ import pytest
 def repository_factory(tmp_path):
     """Create a minimal formal corpus repository and return its mutable seed paper."""
 
-    schema = {
-        "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "type": "object",
-        "required": ["schema_version", "generated_at", "papers"],
-        "properties": {
-            "schema_version": {"type": "string"},
-            "generated_at": {"type": "string"},
-            "papers": {"type": "array", "items": {"type": "object"}},
-        },
-    }
+    schema = json.loads(
+        (Path(__file__).resolve().parents[1] / "schema" / "papers.schema.json").read_text(
+            encoding="utf-8"
+        )
+    )
     paper = {
         "id": "cvpr-2025-layered-light-control",
         "title": "Layered Light Control for Image Editing",
