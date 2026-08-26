@@ -128,3 +128,4 @@ Verification includes:
 - a clean worktree diff and a fresh full test run.
 
 Changes are committed on `refactor/generative-image-paper-watch`, pushed to the existing repository, and published as a draft pull request against `main`. The final handoff lists deleted, rewritten, and added files; formal first-run discoveries; exclusions; validation evidence; the installed skill path; and any source-coverage limitations.
+

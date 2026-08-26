@@ -4,3 +4,4 @@ interface:
   default_prompt: "Use $generative-image-paper-watch to refresh the verified top-conference generative-image paper corpus."
 policy:
   allow_implicit_invocation: true
+

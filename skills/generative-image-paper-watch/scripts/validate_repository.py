@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import unicodedata
@@ -98,6 +99,20 @@ EVIDENCE_URL_RULES = {
     ),
 }
 OPENREVIEW_VENUES = frozenset({"ICLR"})
+PDF_CATEGORIES = frozenset(
+    {
+        "00_Survey_Benchmark_Dataset",
+        "01_Geometry_and_Physical_Cue_Estimation",
+        "02_Object_Subject_Insertion_and_Compositing",
+        "03_Relighting_and_Illumination_Control",
+        "04_Shadow_Generation_and_Contact_Consistency",
+        "05_Layered_Representation_and_Editable_Compositing",
+        "06_Reference_Conditioned_Character_Identity",
+        "07_End_to_End_CG_Guided_Anime_Character_Compositing",
+        "08_Foundation_Models_and_Conditioning_Architectures",
+    }
+)
+PDF_ROOT = "papers"
 
 
 def _path_text(path: object) -> str:
@@ -150,6 +165,109 @@ def _matches_venue_evidence_url(venue: object, evidence_type: object, value: obj
         and re.fullmatch(path_pattern, parsed.path, flags=re.IGNORECASE)
         for host_pattern, path_pattern in rules
     )
+
+
+def _safe_pdf_title(value: object) -> str:
+    cleaned = re.sub(r'[/\\:*?"<>|]', "", str(value))
+    return " ".join(cleaned.split())
+
+
+def _pdf_errors(repo_root: Path, papers: list[object]) -> list[str]:
+    errors: list[str] = []
+    indexed_paths: dict[str, int] = {}
+    indexed_hashes: dict[str, int] = {}
+
+    for position, paper in enumerate(papers):
+        if not isinstance(paper, dict):
+            continue
+        prefix = f"papers[{position}]"
+        status = paper.get("pdf_status")
+        pdf_path = paper.get("pdf_path")
+        pdf_sha256 = paper.get("pdf_sha256")
+        downloaded_date = paper.get("pdf_downloaded_date")
+        primary_category = paper.get("primary_category")
+        secondary_categories = paper.get("secondary_categories")
+
+        if isinstance(secondary_categories, list) and primary_category in secondary_categories:
+            errors.append(f"{prefix}.secondary_categories: must not repeat primary_category")
+
+        if status != "stored":
+            if pdf_path:
+                errors.append(f"{prefix}.pdf_path: must be empty unless pdf_status is stored")
+            if pdf_sha256:
+                errors.append(f"{prefix}.pdf_sha256: must be empty unless pdf_status is stored")
+            if downloaded_date:
+                errors.append(
+                    f"{prefix}.pdf_downloaded_date: must be empty unless pdf_status is stored"
+                )
+            continue
+
+        if not isinstance(pdf_path, str) or not pdf_path:
+            errors.append(f"{prefix}.pdf_path: stored PDF requires a repository path")
+            continue
+        if not isinstance(pdf_sha256, str) or not re.fullmatch(r"[0-9a-f]{64}", pdf_sha256):
+            errors.append(f"{prefix}.pdf_sha256: stored PDF requires a lowercase SHA-256")
+        if not downloaded_date:
+            errors.append(f"{prefix}.pdf_downloaded_date: stored PDF requires a date")
+
+        candidate_path = (repo_root / pdf_path).resolve()
+        try:
+            relative_path = candidate_path.relative_to(repo_root.resolve()).as_posix()
+        except ValueError:
+            errors.append(f"{prefix}.pdf_path: must remain inside the repository")
+            continue
+
+        expected_parent = f"{PDF_ROOT}/{primary_category}"
+        if Path(relative_path).parent.as_posix() != expected_parent:
+            errors.append(f"{prefix}.pdf_path: directory must match primary_category")
+
+        venue_token = str(paper.get("venue", "")).replace(" ", "_")
+        expected_prefix = (
+            f"{paper.get('priority', '')}_{paper.get('year', '')}_{venue_token}_"
+        )
+        expected_suffix = f"- {_safe_pdf_title(paper.get('title', ''))}.pdf"
+        filename = candidate_path.name
+        short_name = filename[len(expected_prefix) : -len(expected_suffix)] if (
+            filename.startswith(expected_prefix) and filename.endswith(expected_suffix)
+        ) else ""
+        if not short_name or re.search(r'[/\\:*?"<>|]', short_name):
+            errors.append(
+                f"{prefix}.pdf_path: filename must match priority/year/venue/title contract"
+            )
+
+        if relative_path in indexed_paths:
+            errors.append(
+                f"{prefix}.pdf_path: duplicate PDF path (also papers[{indexed_paths[relative_path]}])"
+            )
+        else:
+            indexed_paths[relative_path] = position
+
+        if not candidate_path.is_file():
+            errors.append(f"{prefix}.pdf_path: stored PDF does not exist '{pdf_path}'")
+            continue
+        payload = candidate_path.read_bytes()
+        if not payload.startswith(b"%PDF-") or len(payload) <= 8:
+            errors.append(f"{prefix}.pdf_path: file is not a valid non-empty PDF")
+            continue
+        actual_hash = hashlib.sha256(payload).hexdigest()
+        if actual_hash != pdf_sha256:
+            errors.append(f"{prefix}.pdf_sha256: does not match stored PDF")
+        if actual_hash in indexed_hashes:
+            errors.append(
+                f"{prefix}.pdf_sha256: duplicate PDF content "
+                f"(also papers[{indexed_hashes[actual_hash]}])"
+            )
+        else:
+            indexed_hashes[actual_hash] = position
+
+    papers_root = repo_root / PDF_ROOT
+    if papers_root.is_dir():
+        for pdf_file in sorted(papers_root.rglob("*.pdf")):
+            relative_path = pdf_file.relative_to(repo_root).as_posix()
+            if relative_path not in indexed_paths:
+                errors.append(f"papers: orphan PDF '{relative_path}'")
+
+    return errors
 
 
 def _load_json(path: Path, label: str, errors: list[str]) -> object | None:
@@ -288,6 +406,7 @@ def _cross_record_errors(repo_root: Path, document: object) -> list[str]:
                 if not candidate_path.is_file():
                     errors.append(f"{prefix}.report_path: missing referenced report '{report_path}'")
 
+    errors.extend(_pdf_errors(repo_root, document["papers"]))
     return errors
 
 

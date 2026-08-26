@@ -21,8 +21,10 @@
         "identifiers", "acceptance_evidence", "urls", "topics", "tasks",
         "architectures", "base_models", "training_methods", "conditioning_methods",
         "relevance_score", "relevance_rationale", "code_status",
-        "implementation_coverage", "first_seen_date", "last_verified_date",
-        "dedupe_keys", "report_path", "notes"
+        "implementation_coverage", "priority", "primary_category", "secondary_categories",
+        "pdf_status", "pdf_path", "pdf_source_url", "pdf_source_type", "pdf_sha256",
+        "pdf_downloaded_date", "first_seen_date", "last_verified_date", "dedupe_keys",
+        "report_path", "notes"
       ],
       "properties": {
         "id": {"type": "string", "minLength": 1},
@@ -79,6 +81,55 @@
           "enum": ["official_full", "official_inference_only", "official_demo_only", "official_placeholder", "unofficial", "not_found", "unclear"]
         },
         "implementation_coverage": {"type": "string"},
+        "priority": {"enum": ["P1", "P2", "P3"]},
+        "primary_category": {
+          "enum": [
+            "00_Survey_Benchmark_Dataset",
+            "01_Geometry_and_Physical_Cue_Estimation",
+            "02_Object_Subject_Insertion_and_Compositing",
+            "03_Relighting_and_Illumination_Control",
+            "04_Shadow_Generation_and_Contact_Consistency",
+            "05_Layered_Representation_and_Editable_Compositing",
+            "06_Reference_Conditioned_Character_Identity",
+            "07_End_to_End_CG_Guided_Anime_Character_Compositing",
+            "08_Foundation_Models_and_Conditioning_Architectures"
+          ]
+        },
+        "secondary_categories": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "00_Survey_Benchmark_Dataset",
+              "01_Geometry_and_Physical_Cue_Estimation",
+              "02_Object_Subject_Insertion_and_Compositing",
+              "03_Relighting_and_Illumination_Control",
+              "04_Shadow_Generation_and_Contact_Consistency",
+              "05_Layered_Representation_and_Editable_Compositing",
+              "06_Reference_Conditioned_Character_Identity",
+              "07_End_to_End_CG_Guided_Anime_Character_Compositing",
+              "08_Foundation_Models_and_Conditioning_Architectures"
+            ]
+          }
+        },
+        "pdf_status": {
+          "enum": [
+            "stored", "not_found", "download_failed", "source_unavailable",
+            "invalid_pdf", "identity_unclear", "storage_failed"
+          ]
+        },
+        "pdf_path": {"type": "string"},
+        "pdf_source_url": {"$ref": "#/$defs/optional_url"},
+        "pdf_source_type": {
+          "enum": [
+            "official_proceedings", "official_publisher", "author_copy",
+            "arxiv_fallback", "unknown"
+          ]
+        },
+        "pdf_sha256": {"type": "string", "pattern": "^$|^[0-9a-f]{64}$"},
+        "pdf_downloaded_date": {
+          "anyOf": [{"const": ""}, {"type": "string", "format": "date"}]
+        },
         "first_seen_date": {"type": "string", "format": "date"},
         "last_verified_date": {"type": "string", "format": "date"},
         "dedupe_keys": {"type": "array", "items": {"type": "string", "minLength": 1}},

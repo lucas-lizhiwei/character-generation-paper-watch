@@ -31,3 +31,4 @@ Score only after the venue and evidence gate passes.
 | 0 | Out of scope. |
 
 Generic Live2D, talking-avatar, portrait-animation, motion-generation, and 3D-character papers are outside the formal scope unless their central contribution is a transferable generative-image method scoring at least 3.
+

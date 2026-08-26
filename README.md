@@ -37,6 +37,7 @@ Use official venue, proceedings, program, and accepted OpenReview pages first to
 ```text
 ├── index/papers.json                         # versioned formal corpus
 ├── schema/papers.schema.json                 # machine-readable record contract
+├── papers/                                   # canonical PDFs, one per formal record when available
 ├── reports/                                  # dated run reports, once formal records exist
 ├── memory/seen-generative-image-papers.md    # compact confirmed-entry list
 ├── memory/pending-generative-image-review.md # non-formal verification queue
@@ -48,6 +49,8 @@ Use official venue, proceedings, program, and accepted OpenReview pages first to
 ```
 
 `index/papers.json` is a versioned object with `schema_version`, `generated_at`, and `papers`. Each formal record must satisfy the JSON Schema and the deterministic repository validator.
+
+Every formal record also carries an independent P1/P2/P3 reading priority, one primary PDF category, optional secondary categories, and explicit PDF storage metadata. A paper remains formal when a PDF download fails; only `pdf_status=stored` permits a non-empty path, SHA-256, and download date. The validator enforces one canonical file per stored work and rejects missing, malformed, misnamed, misplaced, duplicate, or orphan PDFs.
 
 ## Deduplication
 

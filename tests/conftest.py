@@ -50,6 +50,15 @@ def repository_factory(tmp_path):
         "relevance_rationale": "A transferable controllable image-editing method.",
         "code_status": "official_full",
         "implementation_coverage": "training and inference",
+        "priority": "P1",
+        "primary_category": "03_Relighting_and_Illumination_Control",
+        "secondary_categories": ["08_Foundation_Models_and_Conditioning_Architectures"],
+        "pdf_status": "source_unavailable",
+        "pdf_path": "",
+        "pdf_source_url": "https://arxiv.org/pdf/2501.01234",
+        "pdf_source_type": "arxiv_fallback",
+        "pdf_sha256": "",
+        "pdf_downloaded_date": "",
         "first_seen_date": "2025-01-10",
         "last_verified_date": "2025-01-12",
         "dedupe_keys": ["layered-light-control", "cvpr.2025.1234"],
@@ -68,7 +77,7 @@ def repository_factory(tmp_path):
         (root / "index" / "papers.json").write_text(
             json.dumps(
                 {
-                    "schema_version": "1.0.0",
+                    "schema_version": "1.1.0",
                     "generated_at": "2025-01-12",
                     "papers": papers if papers is not None else [paper],
                 }

@@ -10,7 +10,9 @@ Read this reference for discovery, refresh, identity resolution, and repository 
 4. Search official venue and proceedings surfaces first. Record literal query strings, hosts/endpoints, date and year range, per-cell outcomes, and candidate counts that have a defined counting basis.
 5. Verify accepted main-track identity before enrichment. Put unresolved candidates in pending.
 6. Enrich eligible identities from arXiv, project, official repository, model, demo, and dataset pages. Distinguish source-verified facts from curator inference.
-7. Deduplicate, score relevance, write all artifacts, then validate.
+7. Assign reading priority and primary/secondary PDF taxonomy, then retrieve the canonical PDF from official proceedings, publisher, author copy, or arXiv fallback in that order.
+8. Verify PDF response, signature, parseability, identity, unique SHA-256, filename, and category placement. A failed download does not remove an otherwise formal paper.
+9. Deduplicate, score relevance, write all artifacts, then validate.
 
 Log blocked or failed sources and the fallback used. A zero-result cell means only that no retained candidate cleared the stated screening in that run; it is not proof that the venue or topic has no relevant work. Do not claim systematic completeness unless the search design supports it.
 
@@ -30,9 +32,12 @@ An arXiv title and a conference title for the same work produce one canonical fo
 Treat the formal index as the source of truth. In the same run:
 
 - update `index/papers.json` and its `generated_at` date;
+- keep `papers/` synchronized one-to-one with records whose `pdf_status` is `stored`;
 - make the seen list mirror formal IDs and titles only;
 - remove resolved items from pending and add unresolved candidates with evidence needed;
 - append reproducible coverage, decisions, failures, and anomalies to run notes; and
 - write or update exactly one report for the run date, with every formal `report_path` pointing to an existing report.
+
+Never place a PDF in the formal library before all four formal gates pass. Store one copy under the primary category only; secondary categories are metadata and never produce duplicates. Record attempted endpoints and the reason for every download or storage failure.
 
 For an approved scope reset, delete the identified legacy current-tree index, reports, memory, prompts, scripts, and workflows and rebuild only the approved replacement artifacts. **Git history is the archive. Do not fabricate a new current-tree legacy archive, preserve excluded records behind a `legacy` flag, or carry retired counts and claims into current outputs unless the user explicitly requests a new archive.** An empty formal corpus is valid.

@@ -128,3 +128,43 @@ Named cell assignments for auditability:
 - Added the narrow `ecva.net` authoritative-host suffix after a RED/GREEN validator test confirmed that it accepts `eccv.ecva.net` while rejecting lookalike and unrelated hosts.
 - The official ECCV 2024 ECVA poster record `https://eccv.ecva.net/virtual/2024/poster/1434` establishes BrushNet's title, six authors, year, and poster/main-conference identity; its linked official ECVA paper PDF independently matches the title and authors.
 - BrushNet passed the allowed-venue, main-track, relevance (4/5), and deduplication gates. arXiv and the official TencentARC repository were used only for supplemental identifier and implementation-status metadata.
+
+## 2026-08-26 — implementation and PDF consistency audit
+
+### Requested scope and query plan
+
+- Target repository was explicitly fixed to `lucas-lizhiwei/character-generation-paper-watch`; the unrelated legacy memory checkout was not used as the source of truth.
+- Revalidated the 27 existing formal records, then evaluated five previously audited accepted works against the same venue, acceptance, relevance, and deduplication gates.
+- Implementation lookup order was official paper/project links, official GitHub repository README and tree, official model host, official or author-linked dataset surface, then hosted demo. Repository existence alone was not treated as full implementation coverage.
+- Literal supplemental lookups included `official GitHub "{EXACT_TITLE}"`, `site:huggingface.co "{METHOD}" model`, and direct reads of every non-empty official GitHub URL already recorded in the index.
+
+### Acceptance, relevance, and deduplication decisions
+
+- Added five canonical formal identities after authoritative verification: See-through (SIGGRAPH 2026), Masked Region Transformer/MRT (CVPR 2026), Visual Persona (CVPR 2025), DreamShot (CVPR 2026), and Motion4Motion (SIGGRAPH 2026).
+- RealDiffusion was excluded from the formal corpus because its official repository labels the paper as CVPR 2026 Findings, not the required main/full conference track.
+- CharacterShot remains pending because the accessible ICLR record is submission/under-review evidence. AniGen has formal SIGGRAPH identity but remains pending at the relevance gate because its primary contribution is 3D asset generation.
+- DOI, venue ID, arXiv ID, normalized title/aliases, authors, project identity, and repository identity produced 32 unique formal records and no unresolved formal collision.
+
+### Implementation coverage results
+
+- Re-read 22 official GitHub repositories linked by the corpus. Final status counts: 19 `official_full`, 6 `official_inference_only`, 1 `official_demo_only`, and 6 `not_found`.
+- Added or corrected official model/demo/dataset surfaces for Score SDE, Improved DDPM, Taming Transformers, LDM, SDEdit, EDM, ControlNet, DiT, InstructPix2Pix, Consistency Models, SDXL, BrushNet, SD3, PhotoMaker, LayerDiffuse, SANA, OmniGen, Diffusion Self-Distillation, VDC, See-through, Visual Persona, and DreamShot.
+- Layered Diffusion Brushes is `official_demo_only`: its project page has a pre-generated interactive editor, while code remains marked coming soon. LayerDiffuse points to the official pure-Diffusers inference repository; training and dataset release remain planned.
+- Model and dataset URLs record availability, not reproducibility. No external repository, checkpoint, dataset, or demo was executed in this run.
+
+### Priority and folder classification
+
+- Curator-assigned priority counts are P1=24, P2=7, P3=1. Primary category counts are foundation/conditioning=23, reference-conditioned identity=5, and layered/editable compositing=4.
+- Priority, taxonomy, relevance, and implementation coverage are curator inferences, not venue-issued classifications.
+
+### PDF retrieval and storage outcome
+
+- The repository initially contained zero PDFs and no PDF metadata fields. Schema version 1.1.0 now requires priority, category, PDF status, path, source, SHA-256, and download date for every formal record.
+- Representative binary retrieval from `https://arxiv.org/pdf/2006.11239` failed with HTTP 403 in the container. Direct GitHub clone also failed with CONNECT 403, and ACM binary pages were blocked by bot protection. The web research surface could parse paper text but could not deliver a canonical binary file to the repository.
+- Because the blocking condition applies at the execution network layer, repeated bulk binary requests were not used as false evidence of source absence. All 32 records are marked `source_unavailable`, retain their per-paper arXiv fallback URL, and have empty path, SHA-256, and download date. No record claims `stored`.
+- No PDF was synthesized from extracted text or screenshots. No temporary, HTML, duplicate, orphan, or identity-unclear file was committed.
+
+### Validation and limitations
+
+- Extended repository validation covers stored-file existence, PDF signature/non-empty checks, path confinement, priority/year/venue/title naming, category directory, SHA-256, duplicate path/content, non-stored empty metadata, and orphan PDFs.
+- This was an implementation/PDF consistency audit plus five evidence-gated additions, not a new systematic search of all venue-year-topic cells.

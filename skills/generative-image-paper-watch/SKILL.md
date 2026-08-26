@@ -21,9 +21,11 @@ A completed run has:
 
 1. one canonical formal record per eligible work;
 2. unresolved acceptance, identity, or relevance cases separated into pending notes;
-3. synchronized index, seen list, pending list, run notes, and dated report;
-4. reproducible queries, source coverage, exclusions, failures, and limitations recorded; and
-5. successful schema/repository validation before any commit or push.
+3. priority and primary/secondary PDF taxonomy assigned to every formal record;
+4. each stored PDF verified, hashed, uniquely mapped, and placed under its primary category;
+5. synchronized index, PDF library, seen list, pending list, run notes, and dated report;
+6. reproducible queries, source coverage, exclusions, download failures, and limitations recorded; and
+7. successful schema/repository validation before any commit or push.
 
 Run:
 
