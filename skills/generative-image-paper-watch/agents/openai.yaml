@@ -1,0 +1,6 @@
+interface:
+  display_name: "Generative Image Paper Watch"
+  short_description: "Track verified generative-image conference papers"
+  default_prompt: "Use $generative-image-paper-watch to refresh the verified top-conference generative-image paper corpus."
+policy:
+  allow_implicit_invocation: true

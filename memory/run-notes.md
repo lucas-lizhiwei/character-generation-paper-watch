@@ -1,261 +1,130 @@
-# 运行记录
+# Run Notes
 
-## 2026-05-18
+## 2026-08-25 — corpus reset
 
-- 运行目标：搜索并总结截至 2026-05-18 的 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion 角色控制与可控编辑相关新论文和代码。
-- 主要来源：
-  - arXiv
-  - OpenReview
-  - GitHub
-  - Hugging Face Papers / Spaces
-  - AAAI 2026 页面
-  - SIGGRAPH 2026 / 项目主页
-- 关键词覆盖：
-  - text-to-Live2D
-  - Live2D generation
-  - anime character generation diffusion
-  - character consistency Stable Diffusion
-  - layered character generation
-  - pose-guided / reference-guided character generation
-  - animatable character generation
-  - controllable character editing diffusion
-- 本次结论：
-  - 未发现可确认在 2026-05-18 当天首次公开的核心新增论文或官方代码。
-  - 本轮高价值补录项目为 See-through，其与 Live2D / 2.5D 分层角色建模高度相关，且已经具备较完整开源实现。
-  - LPM 1.0、AniGen、DreamCoser 先归入待人工确认，避免把 3D / 视频表演类工作误判为主线核心发现。
-- 异常与限制：
-  - 搜索结果中“character generation”噪声较多，常混入泛角色一致性、故事视频和 3D 资产生成工作。
-  - 对 GitHub “今天新建仓库”的精确过滤较弱，因此本次更依赖论文页、项目页与官方仓库交叉确认。
+- Reset the current-tree corpus to the formal generative-image paper contract.
+- Created an empty versioned index pending the first authoritative collection.
+- Retired legacy reports, memory, prompt, script, and scheduled workflow from the current tree; Git history remains the archive.
+- No literature search, discovery claim, or semantic collection was performed during this reset.
+- Repository automation now validates the corpus and test suite only.
 
-## 2026-06-01
+## 2026-08-25 — first authoritative collection
 
-- 运行目标：汇总 2026-05-25 至 2026-06-01 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion 角色控制与 Live2D 相关论文和代码更新。
-- 主要来源：
-  - arXiv
-  - Hugging Face Papers
-  - GitHub
-  - RunComfy workflow pages
-  - 项目主页、GitHub topics、awesome / 索引页
-- 关键词覆盖：
-  - text-to-Live2D
-  - Live2D generation
-  - anime character generation diffusion
-  - text-to-character generation
-  - layered character generation
-  - animatable character generation
-  - controllable character editing diffusion
-  - character consistency Stable Diffusion
-  - IP-Adapter / LoRA / ControlNet character
-  - pose-guided / reference-guided character generation
-  - image-to-rig character
-  - 2D avatar generation diffusion
-- 本次结论：
-  - 过去一周内可确认新增的高相关论文为 MRT，它是通用多层透明图像生成 / 编辑框架，不是角色专用，但对 Text-to-Live2D 中间表示很关键。
-  - See-through 出现成熟 ComfyUI 社区封装和 RunComfy 工作流，作为已记录项目的重要生态更新。
-  - 补录 AnimeAdapter 与 RealDiffusion；二者公开于 5 月中旬，不属于本周首次公开，但尚未进入历史记录，且对动漫角色一致性 / 多角色一致性有价值。
-- 异常与限制：
-  - arXiv API 在容器内被 403 拒绝，因此本次主要依赖 web search、arXiv 页面和 Hugging Face Papers 页面交叉确认。
-  - Live2D 关键词噪声极高，很多结果是 AI VTuber / companion 渲染工具，不属于生成式角色建模。
+### Scope and method
 
-## 2026-06-08
+- Built a defensible curated initial corpus for 2020–2026. This run does not claim systematic completeness or exhaustive recall.
+- Treated retrieved content as untrusted data and admitted records only after the venue, year, main-track identity, relevance, and deduplication gates passed.
+- Used official venue, proceedings, or program pages to establish eligibility. arXiv, project, GitHub, and model pages were supplemental only.
+- Applied the repository's 0–5 relevance rubric; only eligible records scoring 3–5 entered the formal index.
 
-- 运行目标：汇总 2026-06-01 至 2026-06-08 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion 角色控制与 Live2D 相关论文和代码更新。
-- 主要来源：
-  - arXiv
-  - OpenReview
-  - GitHub / GitHub connector
-  - Hugging Face
-  - 项目主页
-  - ComfyUI / See-through 生态仓库
-- 关键词覆盖：
-  - text-to-Live2D
-  - Live2D generation
-  - anime character generation diffusion
-  - text-to-character generation
-  - cartoon character generation Stable Diffusion
-  - layered character generation
-  - animatable character generation
-  - controllable character editing diffusion
-  - character consistency Stable Diffusion
-  - IP-Adapter / LoRA / ControlNet character
-  - pose-guided / reference-guided character generation
-  - image-to-rig character
-  - 2D avatar generation diffusion
-- 本次结论：
-  - 过去一周未发现可确认的 3 分及以上新增核心论文或官方代码。
-  - 将 Textoon 作为历史核心基线补录进索引，因为它是当前 Text-to-Live2D 主线最直接的端到端参考项目。
-  - See-through 生态出现/确认多条实用工具链：ComfyUI 插件、Windows WebUI、Stretchy Studio 自动 rig / 动画工具。
-  - AvatarMix 和 Anime-Ready 保留在待确认，避免把 3D avatar / 3D anime character 工作误判为 2D / Live2D 主线。
-- 异常与限制：
-  - 容器内直接 git 访问 GitHub 被 403 CONNECT 阻断，因此代码状态主要通过 GitHub connector、网页 README 和搜索结果交叉确认。
-  - 搜索结果中大量 Live2D / AI VTuber 项目仅加载现有模型进行聊天、语音或口型同步，不生成角色模型或分层素材，已排除。
+### Venue/topic search matrix
 
-## 2026-06-15
+- Search date: `2026-08-25`; year substitution range: `YEAR = 2020..2026`.
+- Venue substitutions: `VENUE = CVPR | ICCV | ECCV | NeurIPS | ICML | ICLR | SIGGRAPH | SIGGRAPH Asia | 3DV`.
+- Site-restricted discovery used the environment's web-search interface; it does not expose a stable search-engine endpoint or reliable raw-hit total. The literal query templates below can be rerun in any compatible web search engine. Counts in this log are therefore unique named candidate identities retained after result-title inspection, not unstable raw-hit estimates.
 
-- 运行目标：汇总 2026-06-08 至 2026-06-15 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion 角色控制、可动画化角色与 Live2D 相关论文和代码更新。
-- 主要来源：
-  - arXiv
-  - Hugging Face Papers
-  - Papers with Code
-  - GitHub / GitHub connector
-  - 项目主页
-  - 已记录项目 README 与代码状态复查
-- 关键词覆盖：
-  - text-to-Live2D
-  - Live2D generation
-  - anime character generation diffusion
-  - text-to-character generation
-  - cartoon character generation Stable Diffusion
-  - layered character generation
-  - animatable character generation
-  - controllable character editing diffusion
-  - character consistency Stable Diffusion
-  - IP-Adapter / LoRA / ControlNet character
-  - pose-guided / reference-guided character generation
-  - image-to-rig character
-  - 2D avatar generation diffusion
-  - talking avatar diffusion
-- 本次结论：
-  - 本周可确认新增的 3 分及以上项目为 SCAIL-2。它不是 Text-to-Live2D 或分层生成，但官方开源推理代码和权重，直接面向参考角色 + 驱动视频的可控角色动画。
-  - 未发现新的直接 Text-to-Live2D / Live2D 分层动漫角色生成核心论文。
-  - AnimeAdapter 与 MRT 仍未发现官方代码、权重或 demo。
-  - Lip Forcing、AnimaSpark、Hallo-Live / StreamChar 属于 talking avatar / 3D animation / audio-video character 支线，暂不纳入核心新发现。
-- 异常与限制：
-  - 容器内直接 curl GitHub API 仍被 403 CONNECT 阻断；代码状态主要通过 GitHub connector、网页搜索、项目页和 README 内容交叉确认。
-  - SCAIL-2 项目页 BibTeX 年份显示为 2025，但 arXiv 页面和检索结果均显示 2026-06-09 / 2026-06-10 公开；本次以 arXiv 日期为准。
+Literal discovery templates, with braces replaced by the endpoint, venue, and year values listed below:
 
-## 2026-06-22
+```text
+Q1 core: site:{HOST} ("diffusion" OR "latent diffusion" OR "flow matching" OR "rectified flow" OR "text-to-image" OR "image editing" OR "DiT" OR "MMDiT") "{VENUE}" {YEAR}
+Q2 control: site:{HOST} ("personalization" OR "DreamBooth" OR "LoRA" OR "adapter" OR "ControlNet" OR "structural control" OR "reference conditioning" OR "IP-Adapter") "{VENUE}" {YEAR}
+Q3 structure: site:{HOST} ("layered generation" OR "relighting" OR "compositing" OR "harmonization" OR "shadow generation") "{VENUE}" {YEAR}
+Q4 family follow-up: "{METHOD_FAMILY}" (CVPR OR ICCV OR ECCV OR NeurIPS OR ICML OR ICLR OR SIGGRAPH OR "SIGGRAPH Asia" OR 3DV)
+```
 
-- 运行目标：汇总 2026-06-15 至 2026-06-22 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion / ControlNet / LoRA / IP-Adapter 角色控制与 Live2D 相关论文和代码更新。
-- 主要来源：
-  - arXiv cs.CV recent / new / 搜索结果
-  - Hugging Face Papers
-  - GitHub / GitHub connector
-  - awesome-video-diffusions 等论文索引
-  - 官方 GitHub README 和项目页
-- 关键词覆盖：
-  - text-to-Live2D
-  - Live2D generation
-  - anime character generation diffusion
-  - text-to-character generation
-  - cartoon character generation Stable Diffusion
-  - layered character generation
-  - animatable character generation
-  - controllable character editing diffusion
-  - character consistency Stable Diffusion
-  - IP-Adapter / LoRA / ControlNet character
-  - pose-guided / reference-guided character generation
-  - image-to-rig character
-  - 2D avatar generation diffusion
-  - talking avatar diffusion
-- 本次结论：
-  - 本周可确认新增的 3 分及以上项目为 SketchKeyAnime。它不是 Text-to-Live2D 或分层建模，但直接面向动漫参考图 + 稀疏关键草图的可控动画生成。
-  - 未发现新的直接 Text-to-Live2D / Live2D 分层动漫角色生成核心论文或官方代码。
-  - FreeStyle 作为 LoRA mining + 双参考生成的通用开源项目进入待确认；Avatar V 作为 talking avatar / video-reference avatar 生成支线进入待确认。
-  - AnimeAdapter、MRT、Textoon、See-through、SCAIL-2 未发现需要单列的重大新增代码/权重变化。
-- 异常与限制：
-  - SketchKeyAnime 未发现官方项目页、GitHub、Demo 或权重。
-  - FreeStyle 虽然开源完整，但不是角色专用，按相关性规则未放入新发现。
-  - Avatar V 的 arXiv 日期为 2026-06-11，位于本周窗口之外，保守作为待确认补录。
+Direct target endpoints were `https://openaccess.thecvf.com/menu`, `https://www.ecva.net/papers.php`, `https://proceedings.neurips.cc/`, `https://proceedings.mlr.press/`, `https://iclr.cc/virtual/`, `https://openreview.net/group?id=ICLR.cc`, `https://s2022.siggraph.org/`, `https://s2023.siggraph.org/`, `https://s2024.siggraph.org/`, `https://asia.siggraph.org/{YEAR}/`, `https://dl.acm.org/doi/`, `https://3dvconf.org/`, and `https://3dv.org/`. CVF-hosted 3DV pages were also checked through the CVF menu.
 
-## 2026-06-29
+`Q4` was run for `DDPM`, `score SDE`, `latent diffusion`, `SDEdit`, `DreamBooth`, `ControlNet`, `DiT`, `consistency models`, `flow matching`, `SDXL`, `rectified flow transformer`, `FLUX.1`, `Qwen-Image`, and `IP-Adapter`. The first eleven acted as canonical identity/version anchors. FLUX.1, Qwen-Image, and IP-Adapter produced three pending families rather than presumed formal papers.
 
-- 运行目标：汇总 2026-06-22 至 2026-06-29 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion / ControlNet / LoRA / IP-Adapter 角色控制与 Live2D 相关论文和代码更新。
-- 主要来源：
-  - arXiv
-  - Hugging Face Papers
-  - GitHub / GitHub connector
-  - Human3DAIGC 项目主页和 GitHub 组织页
-  - 项目主页、ResearchGate 镜像结果、SIGGRAPH 2026 项目页
-- 关键词覆盖：
-  - text-to-Live2D
-  - Live2D generation
-  - anime character generation diffusion
-  - text-to-character generation
-  - cartoon character generation Stable Diffusion
-  - layered character generation
-  - animatable character generation
-  - controllable character editing diffusion
-  - character consistency Stable Diffusion
-  - IP-Adapter / LoRA / ControlNet character
-  - pose-guided / reference-guided character generation
-  - image-to-rig character
-  - 2D avatar generation diffusion
-  - character animation diffusion
-  - layered diffusion video editing
-- 本次结论：
-  - 过去一周未发现可确认的 3 分及以上新增核心论文或官方代码。
-  - 将 CartoonAlive 作为历史核心基线补录进索引；它直接面向 single portrait to expressive Live2D modeling，与 Textoon 互补。
-  - AnimeAdapter 已在 2026-06-20 更新到 v2，标题改为 “A Modular Adapter for Appearance-Consistent Anime Character Generation”，但仍未发现代码、权重或数据集发布。
-  - Vera、L2MAS、NanoLive2D、ContextAnyone、Go-with-the-Track 已加入待确认；其中 Vera 偏通用分层视频编辑，L2MAS / NanoLive2D 偏工程工具链，ContextAnyone 是旧论文官方占位仓库，Go-with-the-Track 偏视频合成与运动控制。
-- 异常与限制：
-  - CartoonAlive 官方仓库目前只有 README 和 assets，未发现完整推理 / 训练代码。
-  - L2MAS 是早期原型，README 明确当前主要是 deterministic mock MVP 和 local FFmpeg smoke path，尚不能当作可用 Text-to-Live2D 生成模型。
-  - GitHub 搜索仍有噪声，大量 Live2D 项目只是加载现有模型做聊天、口型或桌宠，不生成角色模型或分层素材。
+Paper-identity verification used these literal follow-up forms:
 
-## 2026-07-06
+```text
+site:openaccess.thecvf.com/content/{VENUE}{YEAR}/html "{EXACT_TITLE}"
+site:proceedings.neurips.cc "{EXACT_TITLE}"
+site:proceedings.mlr.press "{EXACT_TITLE}"
+site:iclr.cc/virtual/{YEAR} "{EXACT_TITLE}"
+site:openreview.net/forum "{EXACT_TITLE}"
+site:s{YEAR}.siggraph.org "{EXACT_TITLE}"
+site:dl.acm.org/doi "{EXACT_TITLE}"
+```
 
-- 运行目标：汇总 2026-06-29 至 2026-07-06 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion / ControlNet / LoRA / IP-Adapter 角色控制与 Live2D 相关论文和代码更新。
-- 主要来源：
-  - arXiv
-  - Hugging Face Papers
-  - ACM Digital Library / DBLP / 作者主页
-  - GitHub / GitHub connector
-  - See-through、Textoon、CartoonAlive、Visual Persona、Anime2.5DRig、Paper Doll Studio README 和近期 commit
-- 关键词覆盖：
-  - text-to-Live2D
-  - Live2D generation
-  - anime character generation diffusion
-  - text-to-character generation
-  - cartoon character generation Stable Diffusion
-  - layered character generation
-  - animatable character generation
-  - controllable character editing diffusion
-  - character consistency Stable Diffusion
-  - IP-Adapter / LoRA / ControlNet character
-  - pose-guided / reference-guided character generation
-  - image-to-rig character
-  - 2D avatar generation diffusion
-  - talking avatar diffusion
-- 本次结论：
-  - 过去一周未发现新的直接 Text-to-Live2D / image-to-Live2D / 动漫分层角色生成论文。
-  - 补录 Visual Persona；它不是 Live2D 专用，但官方开源推理代码和权重，支持 full-body identity preservation、pose-guided generation、ControlNet story generation、try-on 和 anime / character customization。
-  - See-through 出现两条重要生态更新：新增 AMD ROCm 安装说明，以及将 Anime2.5DRig 加入 community support。Anime2.5DRig 可将 See-through 分层 PSD 自动 rig 成 2.5D avatar。
-  - Paper Doll Studio、Outline and Detail、SyncCache、FacePlex、InterTalk、GaussianEmoTalker 已加入待确认。
-- 异常与限制：
-  - UIST 2025 的 Outline and Detail 暂未找到开放全文或代码，不能确认是否使用 Stable Diffusion / LDM 或支持 Live2D。
-  - 本周 talking avatar 论文很多，但大多偏 3D / real-human portrait / audio-driven face motion，按相关性规则只保留为 2/5 待确认。
-  - AnimeAdapter、CartoonAlive 本周未发现实质代码开放。
+#### Venue-topic cell outcomes
 
-## 2026-07-13
+Each count is the candidate's first retained query-family cell after cross-query deduplication. A zero means no uniquely named candidate from that cell survived title-result inspection; it is not a claim that the venue has no relevant work.
 
-- 运行目标：汇总 2026-07-06 至 2026-07-13 过去一周 AI 生成式角色建模、Text-to-Live2D、动漫角色生成、Stable Diffusion / ControlNet / LoRA / IP-Adapter 角色控制与 Live2D 相关论文和代码更新。
-- 主要来源：
-  - arXiv
-  - Hugging Face Papers
-  - GitHub / GitHub connector
-  - DreamShot、Vidu S1、See-through、Textoon、CartoonAlive、Live2D Automation README
-  - 项目主页与 Hugging Face model 页面入口
-- 关键词覆盖：
-  - text-to-Live2D
-  - Live2D generation
-  - anime character generation diffusion
-  - text-to-character generation
-  - cartoon character generation Stable Diffusion
-  - layered character generation
-  - animatable character generation
-  - controllable character editing diffusion
-  - character consistency Stable Diffusion
-  - IP-Adapter / LoRA / ControlNet character
-  - pose-guided / reference-guided character generation
-  - image-to-rig character
-  - 2D avatar generation diffusion
-  - real-time interactive avatar generation
-- 本次结论：
-  - 本周未发现新的直接 Text-to-Live2D / Live2D 分层动漫角色生成核心论文。
-  - 新纳入主索引的 3 分及以上项目为 DreamShot。它不是 Live2D 主线，但 v2 于 2026-07-06 修订并标注 CVPR 2026 Highlight，官方推理代码和模型权重已公开，适合作为多镜头角色一致性支线参考。
-  - Vidu S1、DreamCharacter-1、Live2D Automation MCP Server 进入待人工确认，分别代表实时交互 avatar、3D 角色资产、Live2D 自动化 PoC 支线。
-  - See-through、Textoon、CartoonAlive 本轮无新的重大代码 / 权重发布；See-through 仍是自动分层和工具链生态最活跃的开源基线。
-- 异常与限制：
-  - 容器内 arXiv API 请求仍因 403 被阻断，因此主要依赖网页搜索、arXiv 页面、Hugging Face Papers 和 GitHub README 交叉确认。
-  - GitHub 搜索返回大量聊天 / 桌宠 / Live2D runtime 项目，已排除未生成角色模型或分层素材的结果。
+| Venue | Target search/proceedings endpoints | Q1 core | Q2 control | Q3 structure | Retained decision outcome |
+| --- | --- | ---: | ---: | ---: | --- |
+| CVPR | `openaccess.thecvf.com`; `thecvf.com` | 6 formal | 3 formal + 1 excluded | 1 formal | 10 formal; NeIn excluded as workshop-only |
+| ICCV | `openaccess.thecvf.com`; `thecvf.com` | 1 formal | 1 formal | 1 formal | 3 formal |
+| ECCV | `ecva.net/papers.php`; `eccv.ecva.net`; `eurographics.org` | 0 | 1 formal | 0 named | BrushNet passed ECVA authoritative-proceedings, main-track, relevance, and deduplication checks; adjacent 3D/video results screened qualitatively |
+| NeurIPS | `proceedings.neurips.cc` | 2 formal | 0 | 0 | 2 formal |
+| ICML | `proceedings.mlr.press`; `icml.cc` | 3 formal | 0 | 0 | 3 formal |
+| ICLR | `iclr.cc/virtual`; `openreview.net/group?id=ICLR.cc` | 5 formal + 2 pending | 4 excluded | 0 | 5 formal; 2 submission-only pending; 4 withdrawn/desk-rejected |
+| SIGGRAPH | `s2022.siggraph.org`; `s2023.siggraph.org`; `s2024.siggraph.org`; `dl.acm.org/doi` | 1 formal | 1 formal | 1 formal | 3 formal |
+| SIGGRAPH Asia | `asia.siggraph.org/{YEAR}`; `dl.acm.org/doi` | 0 | 0 | 0 | No uniquely named candidate cleared the screening and scope gates |
+| 3DV | `3dvconf.org`; `3dv.org`; `openaccess.thecvf.com` | 0 | 0 | 0 named | Adjacent 3D/avatar/video-only results were below the relevance threshold |
+
+Named cell assignments for auditability:
+
+- CVPR Q1 (6): Taming Transformers; Latent Diffusion Models; InstructPix2Pix; OmniGen; PixelDiT; HiCoGen. CVPR Q2 (4): DreamBooth; PhotoMaker; Diffusion Self-Distillation; NeIn (excluded workshop). CVPR Q3 (1): Language-Free Generative Editing.
+- ICCV Q1 (1): Scalable Diffusion Models with Transformers. ICCV Q2 (1): ControlNet. ICCV Q3 (1): Layered Diffusion Brushes.
+- ECCV Q2 (1): BrushNet (formal).
+- NeurIPS Q1 (2): DDPM; EDM.
+- ICML Q1 (3): Improved DDPM; Consistency Models; Scaling Rectified Flow Transformers.
+- ICLR Q1 (7): Score SDE; SDEdit; Flow Matching; SDXL; SANA; Test-Time Evolutionary Search (pending); OneFlow (pending). ICLR Q2 (4): Rethinking Prompt Design (withdrawn); InstructMoLE (desk rejected); TIIF-Bench (withdrawn); CoTDiff (withdrawn).
+- SIGGRAPH Q1 (1): Palette. SIGGRAPH Q2 (1): DragGAN. SIGGRAPH Q3 (1): LayerDiffuse.
+- Cross-venue Q4 model-family follow-ups (3): FLUX.1; Qwen-Image; IP-Adapter, all pending because no allowed accepted main-conference identity was proven.
+
+#### Retrieval, verification, and screening counts
+
+- 37 uniquely named candidates were retained for individual identity/status screening: 27 admitted, 5 pending, and 5 individually named exclusions. Two additional broad exclusion classes—adjacent 3D/avatar/video-only results and retired Live2D scope—were recorded qualitatively rather than given misleading record counts.
+- The 27 admitted papers were each matched to one authoritative accepted main-track record: CVF Open Access 13, ECVA ECCV proceedings/poster 1, NeurIPS proceedings 2, PMLR 3, ICLR official program/proceedings 5, and SIGGRAPH/ACM official records 3.
+- Five candidates failed to reach formal admission and stayed pending: three model/report families without an allowed formal version and two ICLR submissions without accepted status.
+- Five individually named candidates were excluded after status/track verification: three withdrawn, one desk-rejected, and one workshop-only.
+- Exact identifier/title/alias/repository comparison reduced the 27 admitted records to 27 unique method identities; no admitted duplicate was removed after final matching.
+- All 27 formal records received a supplemental link/code-status pass at collection time. Review correction on the same date directly revalidated four official repositories: TencentARC/PhotoMaker, primecai/diffusion-self-distillation, NVlabs/PixelDiT, and omarAlezaby/VDC.
+
+### Authoritative sources consulted
+
+- CVPR and ICCV: CVF Open Access main-conference paper pages.
+- ECCV: official ECVA proceedings and ECCV poster pages were used to establish the accepted main-conference identity of BrushNet.
+- NeurIPS: official proceedings abstract pages.
+- ICML: official PMLR proceedings pages.
+- ICLR: official conference virtual-program/proceedings pages; OpenReview identities were used where the authoritative record was accessible and unambiguous.
+- SIGGRAPH and SIGGRAPH Asia: official conference programs/accepted-paper lists and ACM publication identities.
+- 3DV: official/CVF proceedings and venue results were searched; no candidate meeting this run's scope and threshold was selected.
+
+### Screening and decisions
+
+- Admitted 27 unique formal records: 2020 (1), 2021 (3), 2022 (4), 2023 (7), 2024 (5), 2025 (4), and 2026 (3).
+- Formal venue coverage: CVPR (10), ICCV (3), ECCV (1), ICLR (5), ICML (3), NeurIPS (2), and SIGGRAPH (3).
+- Held 5 candidates in the non-formal pending queue because acceptance evidence was incomplete.
+- Recorded 7 notable exclusion categories, including withdrawn, desk-rejected, workshop-only, and below-threshold adjacent work.
+- Deduplicated using DOI/OpenReview/venue/arXiv identifiers first, then normalized titles and aliases, author/method identity, and official repository identity. The SD3/MMDiT family appears once through its ICML 2024 formal paper.
+
+### Failed or blocked searches
+
+- Direct OpenReview API/page retrieval intermittently returned access-denied or browser-challenge responses. Official ICLR program/proceedings pages were used when they independently established the accepted conference identity; unresolved submissions remained pending or excluded.
+- Direct ACM Digital Library DOI retrieval returned bot-protection responses in this environment. Paper-specific ACM DOI records were retained as official proceedings identities where applicable, and official SIGGRAPH program/accepted-paper pages independently cross-checked the titles and venue placement.
+- Searches with no selected result are not evidence that a venue/topic has no relevant literature; they only mean no candidate cleared every gate in this curated run.
+
+### Reproducibility boundary
+
+- Collection date: 2026-08-25.
+- Formal output: `index/papers.json`; report: `reports/2026-08-25.md`.
+- Code/model availability was classified from linked official paper/project/repository surfaces at page level. Repositories, weights, and demos were not executed.
+- All taxonomy, relevance, implementation-coverage, and trend statements are labeled as curator inference in the index or report rather than venue-verified facts.
+
+### 2026-08-25 review correction — implementation coverage
+
+- PhotoMaker: official repository checked; inference pipeline, demos, and released adapter weights are present, but paper training code is not. Classified `official_inference_only`.
+- Diffusion Self-Distillation: official repository `primecai/diffusion-self-distillation` checked; subject-preserving inference and weights are present, while training code and relighting remain unreleased. Classified `official_inference_only`.
+- PixelDiT: official repository `NVlabs/PixelDiT` checked; class-to-image and text-to-image training/inference plus pretrained models are released. Classified `official_full`.
+- Language-Free Generative Editing/VDC: official repository `omarAlezaby/VDC` checked; the full training-free method release contains steering-condition optimization and both inference paths. Classified `official_full`.
+- DragGAN acceptance evidence now points to its paper-specific ACM proceedings DOI; the SIGGRAPH full program remains an independent cross-check.
+
+### 2026-08-25 review correction — ECVA authority and BrushNet
+
+- Added the narrow `ecva.net` authoritative-host suffix after a RED/GREEN validator test confirmed that it accepts `eccv.ecva.net` while rejecting lookalike and unrelated hosts.
+- The official ECCV 2024 ECVA poster record `https://eccv.ecva.net/virtual/2024/poster/1434` establishes BrushNet's title, six authors, year, and poster/main-conference identity; its linked official ECVA paper PDF independently matches the title and authors.
+- BrushNet passed the allowed-venue, main-track, relevance (4/5), and deduplication gates. arXiv and the official TencentARC repository were used only for supplemental identifier and implementation-status metadata.

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Generative image paper watch corpus",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "papers"],
+  "properties": {
+    "schema_version": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "format": "date"},
+    "papers": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/paper"}
+    }
+  },
+  "$defs": {
+    "url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+    "optional_url": {"anyOf": [{"const": ""}, {"$ref": "#/$defs/url"}]},
+    "paper": {
+      "type": "object",
+      "required": [
+        "id", "title", "aliases", "authors", "year", "venue", "track",
+        "identifiers", "acceptance_evidence", "urls", "topics", "tasks",
+        "architectures", "base_models", "training_methods", "conditioning_methods",
+        "relevance_score", "relevance_rationale", "code_status",
+        "implementation_coverage", "first_seen_date", "last_verified_date",
+        "dedupe_keys", "report_path", "notes"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "aliases": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "authors": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+        "year": {"type": "integer", "minimum": 1900},
+        "venue": {
+          "type": "string",
+          "enum": ["CVPR", "ICCV", "ECCV", "NeurIPS", "ICML", "ICLR", "SIGGRAPH", "SIGGRAPH Asia", "3DV"]
+        },
+        "track": {"const": "main"},
+        "identifiers": {
+          "type": "object",
+          "required": ["doi", "openreview", "venue", "arxiv"],
+          "properties": {
+            "doi": {"type": "string"},
+            "openreview": {"type": "string"},
+            "venue": {"type": "string"},
+            "arxiv": {"type": "string"}
+          }
+        },
+        "acceptance_evidence": {
+          "type": "object",
+          "required": ["type", "url"],
+          "properties": {
+            "type": {"enum": ["official_proceedings", "official_program", "openreview_accepted"]},
+            "url": {"$ref": "#/$defs/url"}
+          }
+        },
+        "urls": {
+          "type": "object",
+          "required": ["paper", "arxiv", "project", "code", "demo", "model", "dataset"],
+          "properties": {
+            "paper": {"$ref": "#/$defs/url"},
+            "arxiv": {"$ref": "#/$defs/optional_url"},
+            "project": {"$ref": "#/$defs/optional_url"},
+            "code": {"$ref": "#/$defs/optional_url"},
+            "demo": {"$ref": "#/$defs/optional_url"},
+            "model": {"$ref": "#/$defs/optional_url"},
+            "dataset": {"$ref": "#/$defs/optional_url"}
+          }
+        },
+        "topics": {"type": "array", "items": {"type": "string"}},
+        "tasks": {"type": "array", "items": {"type": "string"}},
+        "architectures": {"type": "array", "items": {"type": "string"}},
+        "base_models": {"type": "array", "items": {"type": "string"}},
+        "training_methods": {"type": "array", "items": {"type": "string"}},
+        "conditioning_methods": {"type": "array", "items": {"type": "string"}},
+        "relevance_score": {"type": "integer", "minimum": 3, "maximum": 5},
+        "relevance_rationale": {"type": "string", "minLength": 1},
+        "code_status": {
+          "type": "string",
+          "enum": ["official_full", "official_inference_only", "official_demo_only", "official_placeholder", "unofficial", "not_found", "unclear"]
+        },
+        "implementation_coverage": {"type": "string"},
+        "first_seen_date": {"type": "string", "format": "date"},
+        "last_verified_date": {"type": "string", "format": "date"},
+        "dedupe_keys": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "report_path": {"type": "string", "minLength": 1},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}
