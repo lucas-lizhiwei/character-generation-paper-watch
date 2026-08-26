@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0.0",
-  "generated_at": "2026-08-25",
+  "schema_version": "1.1.0",
+  "generated_at": "2026-08-26",
   "papers": [
     {
       "id": "neurips-2020-denoising-diffusion-probabilistic-models",
@@ -54,17 +54,101 @@
       "relevance_score": 5,
       "relevance_rationale": "Foundational diffusion objective and sampling formulation for high-quality image generation.",
       "code_status": "official_full",
-      "implementation_coverage": "Official training and sampling implementation linked by the paper.",
+      "implementation_coverage": "Official TensorFlow training, evaluation, and sampling code. The repository uses standard TensorFlow Datasets; no official pretrained checkpoint or new dataset release is exposed.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:denoising diffusion probabilistic models",
         "arxiv:2006.11239",
         "venue:neurips-4c5bcfec8584af0d967f1ab10179ca4b",
         "code:hojonathanho/diffusion"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative NeurIPS source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative NeurIPS source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2006.11239",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "cvpr-2021-taming-transformers",
+      "title": "Taming Transformers for High-Resolution Image Synthesis",
+      "aliases": [
+        "VQGAN"
+      ],
+      "authors": [
+        "Patrick Esser",
+        "Robin Rombach",
+        "Björn Ommer"
+      ],
+      "year": 2021,
+      "venue": "CVPR",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Esser_2021_CVPR",
+        "arxiv": "2012.09841"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/CVPR2021/html/Esser_Taming_Transformers_for_High-Resolution_Image_Synthesis_CVPR_2021_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2021/html/Esser_Taming_Transformers_for_High-Resolution_Image_Synthesis_CVPR_2021_paper.html",
+        "arxiv": "https://arxiv.org/abs/2012.09841",
+        "project": "",
+        "code": "https://github.com/CompVis/taming-transformers",
+        "demo": "https://colab.research.google.com/github/CompVis/taming-transformers/blob/master/scripts/taming-transformers.ipynb",
+        "model": "https://heibox.uni-heidelberg.de/d/2e5662443a6b4307b470/",
+        "dataset": ""
+      },
+      "topics": [
+        "latent representation",
+        "image synthesis",
+        "tokenized generation"
+      ],
+      "tasks": [
+        "high-resolution image generation"
+      ],
+      "architectures": [
+        "VQGAN",
+        "Transformer"
+      ],
+      "base_models": [],
+      "training_methods": [
+        "adversarial autoencoding",
+        "autoregressive modeling"
+      ],
+      "conditioning_methods": [],
+      "relevance_score": 5,
+      "relevance_rationale": "Foundational learned image-token representation and transformer synthesis method that precedes latent diffusion.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official VQGAN and transformer training, sampling, model-zoo checkpoints, Streamlit examples, and Colab notebooks. Dataset scripts target public benchmarks; no new dataset is released.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:taming transformers for high resolution image synthesis",
+        "arxiv:2012.09841",
+        "venue:Esser_2021_CVPR",
+        "code:CompVis/taming-transformers"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2012.09841",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "iclr-2021-score-based-generative-modeling-sdes",
@@ -98,8 +182,8 @@
         "arxiv": "https://arxiv.org/abs/2011.13456",
         "project": "",
         "code": "https://github.com/yang-song/score_sde",
-        "demo": "",
-        "model": "",
+        "demo": "https://colab.research.google.com/drive/1dRR_0gNRmfLtPavX2APzUggBuXyjWW55",
+        "model": "https://drive.google.com/drive/folders/1RAG8qpOTURkrqXKwdAR1d6cU9rwoQYnH",
         "dataset": ""
       },
       "topics": [
@@ -123,17 +207,26 @@
       "relevance_score": 5,
       "relevance_rationale": "Foundational continuous-time score-based framework unifying diffusion and SDE sampling for images.",
       "code_status": "official_full",
-      "implementation_coverage": "Official training, evaluation, and sampling implementation.",
+      "implementation_coverage": "Official JAX and PyTorch training, evaluation, likelihood, sampling, pretrained checkpoints, and Colab tutorials. It uses established vision datasets rather than releasing a new paper dataset.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:score based generative modeling through stochastic differential equations",
         "openreview:PxTIG12RRHS",
         "arxiv:2011.13456",
         "code:yang-song/score_sde"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2011.13456",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "icml-2021-improved-denoising-diffusion-probabilistic-models",
@@ -165,7 +258,7 @@
         "project": "",
         "code": "https://github.com/openai/improved-diffusion",
         "demo": "",
-        "model": "",
+        "model": "https://openaipublic.blob.core.windows.net/diffusion/march-2021/imagenet64_uncond_100M_1500K.pt",
         "dataset": ""
       },
       "topics": [
@@ -189,83 +282,26 @@
       "relevance_score": 5,
       "relevance_rationale": "Core diffusion training and variance-learning improvements with substantially faster sampling.",
       "code_status": "official_full",
-      "implementation_coverage": "Official training, sampling, and pretrained-model implementation.",
+      "implementation_coverage": "Official training and sampling code with multiple paper checkpoints. Dataset preparation targets ImageNet, LSUN, and CIFAR-10; no new dataset is released.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:improved denoising diffusion probabilistic models",
         "arxiv:2102.09672",
         "venue:pmlr-v139-nichol21a",
         "code:openai/improved-diffusion"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICML source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
-    },
-    {
-      "id": "cvpr-2021-taming-transformers",
-      "title": "Taming Transformers for High-Resolution Image Synthesis",
-      "aliases": [
-        "VQGAN"
-      ],
-      "authors": [
-        "Patrick Esser",
-        "Robin Rombach",
-        "Björn Ommer"
-      ],
-      "year": 2021,
-      "venue": "CVPR",
-      "track": "main",
-      "identifiers": {
-        "doi": "",
-        "openreview": "",
-        "venue": "Esser_2021_CVPR",
-        "arxiv": "2012.09841"
-      },
-      "acceptance_evidence": {
-        "type": "official_proceedings",
-        "url": "https://openaccess.thecvf.com/content/CVPR2021/html/Esser_Taming_Transformers_for_High-Resolution_Image_Synthesis_CVPR_2021_paper.html"
-      },
-      "urls": {
-        "paper": "https://openaccess.thecvf.com/content/CVPR2021/html/Esser_Taming_Transformers_for_High-Resolution_Image_Synthesis_CVPR_2021_paper.html",
-        "arxiv": "https://arxiv.org/abs/2012.09841",
-        "project": "",
-        "code": "https://github.com/CompVis/taming-transformers",
-        "demo": "",
-        "model": "",
-        "dataset": ""
-      },
-      "topics": [
-        "latent representation",
-        "image synthesis",
-        "tokenized generation"
-      ],
-      "tasks": [
-        "high-resolution image generation"
-      ],
-      "architectures": [
-        "VQGAN",
-        "Transformer"
-      ],
-      "base_models": [],
-      "training_methods": [
-        "adversarial autoencoding",
-        "autoregressive modeling"
-      ],
-      "conditioning_methods": [],
-      "relevance_score": 5,
-      "relevance_rationale": "Foundational learned image-token representation and transformer synthesis method that precedes latent diffusion.",
-      "code_status": "official_full",
-      "implementation_coverage": "Official training, sampling, and pretrained-model code.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:taming transformers for high resolution image synthesis",
-        "arxiv:2012.09841",
-        "venue:Esser_2021_CVPR",
-        "code:CompVis/taming-transformers"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICML source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2102.09672",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "cvpr-2022-latent-diffusion-models",
@@ -299,8 +335,8 @@
         "arxiv": "https://arxiv.org/abs/2112.10752",
         "project": "https://ommer-lab.com/research/latent-diffusion-models/",
         "code": "https://github.com/CompVis/latent-diffusion",
-        "demo": "",
-        "model": "",
+        "demo": "https://huggingface.co/spaces/multimodalart/latentdiffusion",
+        "model": "https://huggingface.co/CompVis/ldm-text2im-large-256",
         "dataset": ""
       },
       "topics": [
@@ -327,17 +363,26 @@
       "relevance_score": 5,
       "relevance_rationale": "Foundational latent-space diffusion architecture underlying the Stable Diffusion method family.",
       "code_status": "official_full",
-      "implementation_coverage": "Official latent-diffusion training, sampling, and model code.",
+      "implementation_coverage": "Official autoencoder and latent-diffusion training, sampling, model-zoo checkpoints, retrieval-augmented resources, and a public demo. Training relies on established datasets.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:high resolution image synthesis with latent diffusion models",
         "arxiv:2112.10752",
         "venue:Rombach_2022_CVPR",
         "code:CompVis/latent-diffusion"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2112.10752",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "iclr-2022-sdedit",
@@ -372,8 +417,8 @@
         "arxiv": "https://arxiv.org/abs/2108.01073",
         "project": "https://sde-image-editing.github.io/",
         "code": "https://github.com/ermongroup/SDEdit",
-        "demo": "",
-        "model": "",
+        "demo": "https://colab.research.google.com/drive/1KkLS53PndXKQpPlS1iK-k1nRQYmlb4aO",
+        "model": "https://image-editing-test-12345.s3-us-west-2.amazonaws.com/checkpoints/celeba_hq.ckpt",
         "dataset": ""
       },
       "topics": [
@@ -399,17 +444,26 @@
       "relevance_score": 4,
       "relevance_rationale": "General-purpose diffusion-prior editing and compositing method with transferable guidance mechanics.",
       "code_status": "official_full",
-      "implementation_coverage": "Official editing and sampling implementation.",
+      "implementation_coverage": "Official SDEdit editing and sampling implementation with pretrained SDE checkpoints and Colab. The method reuses pretrained score models; no new training dataset is released.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:sdedit guided image synthesis and editing with stochastic differential equations",
         "openreview:aBsCjcPu_tE",
         "arxiv:2108.01073",
         "code:ermongroup/SDEdit"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2108.01073",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "neurips-2022-elucidating-diffusion-design-space",
@@ -442,7 +496,7 @@
         "project": "",
         "code": "https://github.com/NVlabs/edm",
         "demo": "",
-        "model": "",
+        "model": "https://nvlabs-fi-cdn.nvidia.com/edm/pretrained/",
         "dataset": ""
       },
       "topics": [
@@ -465,17 +519,26 @@
       "relevance_score": 5,
       "relevance_rationale": "Foundational decomposition and improvement of diffusion training, parameterization, and sampling choices.",
       "code_status": "official_full",
-      "implementation_coverage": "Official training, sampling, evaluation, and pretrained-model code.",
+      "implementation_coverage": "Official training, sampling, evaluation, and paper checkpoints for CIFAR-10, FFHQ, AFHQv2, and ImageNet experiments.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:elucidating the design space of diffusion based generative models",
         "doi:10.52202/068431-1926",
         "arxiv:2206.00364",
         "code:NVlabs/edm"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative NeurIPS source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative NeurIPS source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2206.00364",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "siggraph-2022-palette",
@@ -538,83 +601,26 @@
       "relevance_score": 4,
       "relevance_rationale": "General-purpose conditional diffusion framework spanning multiple transferable image-to-image tasks.",
       "code_status": "not_found",
-      "implementation_coverage": "Project page verified; no official implementation was confirmed in this run.",
+      "implementation_coverage": "Official project and paper are available. No official code, weights, hosted demo, or new dataset release was confirmed; prominent GitHub implementations are third-party.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:palette image to image diffusion models",
         "doi:10.1145/3528233.3530757",
         "arxiv:2111.05826",
         "venue:SIGGRAPH2022-15"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative SIGGRAPH source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
-    },
-    {
-      "id": "iclr-2023-flow-matching",
-      "title": "Flow Matching for Generative Modeling",
-      "aliases": [
-        "Flow Matching"
-      ],
-      "authors": [
-        "Yaron Lipman",
-        "Ricky T. Q. Chen",
-        "Heli Ben-Hamu",
-        "Maximilian Nickel",
-        "Matthew Le"
-      ],
-      "year": 2023,
-      "venue": "ICLR",
-      "track": "main",
-      "identifiers": {
-        "doi": "",
-        "openreview": "PqvMRDCJT9t",
-        "venue": "ICLR2023-11309",
-        "arxiv": "2210.02747"
-      },
-      "acceptance_evidence": {
-        "type": "official_program",
-        "url": "https://iclr.cc/virtual/2023/poster/11309"
-      },
-      "urls": {
-        "paper": "https://iclr.cc/virtual/2023/poster/11309",
-        "arxiv": "https://arxiv.org/abs/2210.02747",
-        "project": "",
-        "code": "",
-        "demo": "",
-        "model": "",
-        "dataset": ""
-      },
-      "topics": [
-        "flow matching",
-        "continuous normalizing flows"
-      ],
-      "tasks": [
-        "image generation"
-      ],
-      "architectures": [
-        "continuous normalizing flow"
-      ],
-      "base_models": [],
-      "training_methods": [
-        "vector-field regression",
-        "optimal-transport paths"
-      ],
-      "conditioning_methods": [],
-      "relevance_score": 5,
-      "relevance_rationale": "Foundational simulation-free flow-matching objective demonstrated on large-scale image generation.",
-      "code_status": "not_found",
-      "implementation_coverage": "No official implementation was confirmed in this run.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:flow matching for generative modeling",
-        "openreview:PqvMRDCJT9t",
-        "arxiv:2210.02747",
-        "venue:ICLR2023-11309"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative SIGGRAPH source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P2",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2111.05826",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "cvpr-2023-dreambooth",
@@ -676,156 +682,28 @@
       "relevance_score": 4,
       "relevance_rationale": "Canonical subject-driven personalization method for text-to-image diffusion models.",
       "code_status": "not_found",
-      "implementation_coverage": "Official project page verified; no official training code was confirmed.",
+      "implementation_coverage": "Official project page and paper are available. No official DreamBooth training repository, paper checkpoint, demo, or dataset release was confirmed.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:dreambooth fine tuning text to image diffusion models for subject driven generation",
         "arxiv:2208.12242",
         "venue:Ruiz_2023_CVPR",
         "project:dreambooth"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
-    },
-    {
-      "id": "iccv-2023-controlnet",
-      "title": "Adding Conditional Control to Text-to-Image Diffusion Models",
-      "aliases": [
-        "ControlNet"
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "06_Reference_Conditioned_Character_Identity",
+      "secondary_categories": [
+        "08_Foundation_Models_and_Conditioning_Architectures"
       ],
-      "authors": [
-        "Lvmin Zhang",
-        "Anyi Rao",
-        "Maneesh Agrawala"
-      ],
-      "year": 2023,
-      "venue": "ICCV",
-      "track": "main",
-      "identifiers": {
-        "doi": "",
-        "openreview": "",
-        "venue": "Zhang_2023_ICCV",
-        "arxiv": "2302.05543"
-      },
-      "acceptance_evidence": {
-        "type": "official_proceedings",
-        "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Zhang_Adding_Conditional_Control_to_Text-to-Image_Diffusion_Models_ICCV_2023_paper.html"
-      },
-      "urls": {
-        "paper": "https://openaccess.thecvf.com/content/ICCV2023/html/Zhang_Adding_Conditional_Control_to_Text-to-Image_Diffusion_Models_ICCV_2023_paper.html",
-        "arxiv": "https://arxiv.org/abs/2302.05543",
-        "project": "https://lllyasviel.github.io/ControlNet/",
-        "code": "https://github.com/lllyasviel/ControlNet",
-        "demo": "",
-        "model": "",
-        "dataset": ""
-      },
-      "topics": [
-        "structural control",
-        "controllable generation",
-        "diffusion"
-      ],
-      "tasks": [
-        "controlled text-to-image generation"
-      ],
-      "architectures": [
-        "ControlNet",
-        "U-Net"
-      ],
-      "base_models": [
-        "Stable Diffusion"
-      ],
-      "training_methods": [
-        "zero-convolution adaptation"
-      ],
-      "conditioning_methods": [
-        "edge maps",
-        "depth maps",
-        "pose",
-        "segmentation"
-      ],
-      "relevance_score": 4,
-      "relevance_rationale": "Canonical structural-conditioning architecture for pretrained text-to-image diffusion models.",
-      "code_status": "official_full",
-      "implementation_coverage": "Official training, inference, and released-control-model code.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:adding conditional control to text to image diffusion models",
-        "arxiv:2302.05543",
-        "venue:Zhang_2023_ICCV",
-        "code:lllyasviel/ControlNet"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICCV source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
-    },
-    {
-      "id": "iccv-2023-diffusion-transformers",
-      "title": "Scalable Diffusion Models with Transformers",
-      "aliases": [
-        "DiT",
-        "Diffusion Transformer"
-      ],
-      "authors": [
-        "William Peebles",
-        "Saining Xie"
-      ],
-      "year": 2023,
-      "venue": "ICCV",
-      "track": "main",
-      "identifiers": {
-        "doi": "",
-        "openreview": "",
-        "venue": "Peebles_2023_ICCV",
-        "arxiv": "2212.09748"
-      },
-      "acceptance_evidence": {
-        "type": "official_proceedings",
-        "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Peebles_Scalable_Diffusion_Models_with_Transformers_ICCV_2023_paper.html"
-      },
-      "urls": {
-        "paper": "https://openaccess.thecvf.com/content/ICCV2023/html/Peebles_Scalable_Diffusion_Models_with_Transformers_ICCV_2023_paper.html",
-        "arxiv": "https://arxiv.org/abs/2212.09748",
-        "project": "https://www.wpeebles.com/DiT",
-        "code": "https://github.com/facebookresearch/DiT",
-        "demo": "",
-        "model": "",
-        "dataset": ""
-      },
-      "topics": [
-        "diffusion transformer",
-        "architecture scaling"
-      ],
-      "tasks": [
-        "class-conditional image generation"
-      ],
-      "architectures": [
-        "DiT",
-        "Transformer"
-      ],
-      "base_models": [],
-      "training_methods": [
-        "latent diffusion",
-        "scaling"
-      ],
-      "conditioning_methods": [
-        "class conditioning"
-      ],
-      "relevance_score": 5,
-      "relevance_rationale": "Foundational replacement of convolutional diffusion backbones with scalable transformers.",
-      "code_status": "official_full",
-      "implementation_coverage": "Official training, sampling, and pretrained-model code.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:scalable diffusion models with transformers",
-        "arxiv:2212.09748",
-        "venue:Peebles_2023_ICCV",
-        "code:facebookresearch/DiT"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICCV source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2208.12242",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "cvpr-2023-instructpix2pix",
@@ -857,9 +735,9 @@
         "arxiv": "https://arxiv.org/abs/2211.09800",
         "project": "https://www.timothybrooks.com/instruct-pix2pix",
         "code": "https://github.com/timothybrooks/instruct-pix2pix",
-        "demo": "",
-        "model": "",
-        "dataset": ""
+        "demo": "https://huggingface.co/spaces/timbrooks/instruct-pix2pix",
+        "model": "https://huggingface.co/timbrooks/instruct-pix2pix",
+        "dataset": "https://instruct-pix2pix.eecs.berkeley.edu/"
       },
       "topics": [
         "instruction-guided editing",
@@ -885,17 +763,260 @@
       "relevance_score": 4,
       "relevance_rationale": "General-purpose instruction-following image editing model with a transferable data-generation recipe.",
       "code_status": "official_full",
-      "implementation_coverage": "Official training and inference implementation with released checkpoints.",
+      "implementation_coverage": "Official dataset-generation, training, inference, pretrained checkpoint, local Gradio, and hosted demo release. The generated instruction-edit dataset is downloadable through repository scripts.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:instructpix2pix learning to follow image editing instructions",
         "arxiv:2211.09800",
         "venue:Brooks_2023_CVPR",
         "code:timothybrooks/instruct-pix2pix"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2211.09800",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "iccv-2023-controlnet",
+      "title": "Adding Conditional Control to Text-to-Image Diffusion Models",
+      "aliases": [
+        "ControlNet"
+      ],
+      "authors": [
+        "Lvmin Zhang",
+        "Anyi Rao",
+        "Maneesh Agrawala"
+      ],
+      "year": 2023,
+      "venue": "ICCV",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Zhang_2023_ICCV",
+        "arxiv": "2302.05543"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Zhang_Adding_Conditional_Control_to_Text-to-Image_Diffusion_Models_ICCV_2023_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/ICCV2023/html/Zhang_Adding_Conditional_Control_to_Text-to-Image_Diffusion_Models_ICCV_2023_paper.html",
+        "arxiv": "https://arxiv.org/abs/2302.05543",
+        "project": "https://lllyasviel.github.io/ControlNet/",
+        "code": "https://github.com/lllyasviel/ControlNet",
+        "demo": "",
+        "model": "https://huggingface.co/lllyasviel/ControlNet",
+        "dataset": ""
+      },
+      "topics": [
+        "structural control",
+        "controllable generation",
+        "diffusion"
+      ],
+      "tasks": [
+        "controlled text-to-image generation"
+      ],
+      "architectures": [
+        "ControlNet",
+        "U-Net"
+      ],
+      "base_models": [
+        "Stable Diffusion"
+      ],
+      "training_methods": [
+        "zero-convolution adaptation"
+      ],
+      "conditioning_methods": [
+        "edge maps",
+        "depth maps",
+        "pose",
+        "segmentation"
+      ],
+      "relevance_score": 4,
+      "relevance_rationale": "Canonical structural-conditioning architecture for pretrained text-to-image diffusion models.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official training and inference code, nine local Gradio applications, detector assets, and released ControlNet weights. It uses task-specific public data sources rather than a single new dataset release.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:adding conditional control to text to image diffusion models",
+        "arxiv:2302.05543",
+        "venue:Zhang_2023_ICCV",
+        "code:lllyasviel/ControlNet"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICCV source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [
+        "02_Object_Subject_Insertion_and_Compositing"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2302.05543",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "iccv-2023-diffusion-transformers",
+      "title": "Scalable Diffusion Models with Transformers",
+      "aliases": [
+        "DiT",
+        "Diffusion Transformer"
+      ],
+      "authors": [
+        "William Peebles",
+        "Saining Xie"
+      ],
+      "year": 2023,
+      "venue": "ICCV",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Peebles_2023_ICCV",
+        "arxiv": "2212.09748"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Peebles_Scalable_Diffusion_Models_with_Transformers_ICCV_2023_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/ICCV2023/html/Peebles_Scalable_Diffusion_Models_with_Transformers_ICCV_2023_paper.html",
+        "arxiv": "https://arxiv.org/abs/2212.09748",
+        "project": "https://www.wpeebles.com/DiT",
+        "code": "https://github.com/facebookresearch/DiT",
+        "demo": "https://huggingface.co/spaces/wpeebles/DiT",
+        "model": "https://dl.fbaipublicfiles.com/DiT/models/DiT-XL-2-512x512.pt",
+        "dataset": ""
+      },
+      "topics": [
+        "diffusion transformer",
+        "architecture scaling"
+      ],
+      "tasks": [
+        "class-conditional image generation"
+      ],
+      "architectures": [
+        "DiT",
+        "Transformer"
+      ],
+      "base_models": [],
+      "training_methods": [
+        "latent diffusion",
+        "scaling"
+      ],
+      "conditioning_methods": [
+        "class conditioning"
+      ],
+      "relevance_score": 5,
+      "relevance_rationale": "Foundational replacement of convolutional diffusion backbones with scalable transformers.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official PyTorch distributed training, sampling, pretrained DiT checkpoints, Hugging Face Space, and Colab notebook. ImageNet is the evaluation/training dataset.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:scalable diffusion models with transformers",
+        "arxiv:2212.09748",
+        "venue:Peebles_2023_ICCV",
+        "code:facebookresearch/DiT"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICCV source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2212.09748",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "iclr-2023-flow-matching",
+      "title": "Flow Matching for Generative Modeling",
+      "aliases": [
+        "Flow Matching"
+      ],
+      "authors": [
+        "Yaron Lipman",
+        "Ricky T. Q. Chen",
+        "Heli Ben-Hamu",
+        "Maximilian Nickel",
+        "Matthew Le"
+      ],
+      "year": 2023,
+      "venue": "ICLR",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "PqvMRDCJT9t",
+        "venue": "ICLR2023-11309",
+        "arxiv": "2210.02747"
+      },
+      "acceptance_evidence": {
+        "type": "official_program",
+        "url": "https://iclr.cc/virtual/2023/poster/11309"
+      },
+      "urls": {
+        "paper": "https://iclr.cc/virtual/2023/poster/11309",
+        "arxiv": "https://arxiv.org/abs/2210.02747",
+        "project": "",
+        "code": "",
+        "demo": "",
+        "model": "",
+        "dataset": ""
+      },
+      "topics": [
+        "flow matching",
+        "continuous normalizing flows"
+      ],
+      "tasks": [
+        "image generation"
+      ],
+      "architectures": [
+        "continuous normalizing flow"
+      ],
+      "base_models": [],
+      "training_methods": [
+        "vector-field regression",
+        "optimal-transport paths"
+      ],
+      "conditioning_methods": [],
+      "relevance_score": 5,
+      "relevance_rationale": "Foundational simulation-free flow-matching objective demonstrated on large-scale image generation.",
+      "code_status": "not_found",
+      "implementation_coverage": "No implementation explicitly released as the official code for the 2023 paper was confirmed. Later author-affiliated flow-matching libraries are supplemental follow-up resources, not treated as this paper's canonical implementation.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:flow matching for generative modeling",
+        "openreview:PqvMRDCJT9t",
+        "arxiv:2210.02747",
+        "venue:ICLR2023-11309"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2210.02747",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "icml-2023-consistency-models",
@@ -928,7 +1049,7 @@
         "project": "",
         "code": "https://github.com/openai/consistency_models",
         "demo": "",
-        "model": "",
+        "model": "https://huggingface.co/openai/diffusers-cd_imagenet64_l2",
         "dataset": ""
       },
       "topics": [
@@ -953,17 +1074,26 @@
       "relevance_score": 5,
       "relevance_rationale": "Foundational one- and few-step generative-model family derived from diffusion trajectories.",
       "code_status": "official_full",
-      "implementation_coverage": "Official training, distillation, sampling, and checkpoint code.",
+      "implementation_coverage": "Official consistency training, distillation, sampling, editing algorithms, and paper checkpoints. Diffusers-compatible checkpoints are also published under the OpenAI Hugging Face organization.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:consistency models",
         "arxiv:2303.01469",
         "venue:pmlr-v202-song23a",
         "code:openai/consistency_models"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICML source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICML source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2303.01469",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "siggraph-2023-draggan",
@@ -1025,17 +1155,195 @@
       "relevance_score": 4,
       "relevance_rationale": "General-purpose interactive editing method operating on a learned generative image manifold.",
       "code_status": "official_full",
-      "implementation_coverage": "Official interactive inference implementation.",
+      "implementation_coverage": "Official interactive inference implementation. It consumes pretrained StyleGAN checkpoints; it does not release a new foundation model or dataset.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:drag your gan interactive point based manipulation on the generative image manifold",
         "doi:10.1145/3588432.3591500",
         "arxiv:2305.10973",
         "code:XingangPan/DragGAN"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, main-conference identity, and DOI from the paper-specific ACM proceedings record; the official SIGGRAPH program was an independent cross-check. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, main-conference identity, and DOI from the paper-specific ACM proceedings record; the official SIGGRAPH program was an independent cross-check. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P2",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2305.10973",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "cvpr-2024-photomaker",
+      "title": "PhotoMaker: Customizing Realistic Human Photos via Stacked ID Embedding",
+      "aliases": [
+        "PhotoMaker"
+      ],
+      "authors": [
+        "Zhen Li",
+        "Mingdeng Cao",
+        "Xintao Wang",
+        "Zhongang Qi",
+        "Ming-Ming Cheng",
+        "Ying Shan"
+      ],
+      "year": 2024,
+      "venue": "CVPR",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Li_2024_CVPR_PhotoMaker",
+        "arxiv": "2312.04461"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Li_PhotoMaker_Customizing_Realistic_Human_Photos_via_Stacked_ID_Embedding_CVPR_2024_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2024/html/Li_PhotoMaker_Customizing_Realistic_Human_Photos_via_Stacked_ID_Embedding_CVPR_2024_paper.html",
+        "arxiv": "https://arxiv.org/abs/2312.04461",
+        "project": "https://photo-maker.github.io/",
+        "code": "https://github.com/TencentARC/PhotoMaker",
+        "demo": "https://huggingface.co/spaces/TencentARC/PhotoMaker",
+        "model": "https://huggingface.co/TencentARC/PhotoMaker",
+        "dataset": ""
+      },
+      "topics": [
+        "personalization",
+        "identity conditioning"
+      ],
+      "tasks": [
+        "personalized human image generation"
+      ],
+      "architectures": [
+        "latent diffusion",
+        "adapter"
+      ],
+      "base_models": [
+        "SDXL"
+      ],
+      "training_methods": [
+        "stacked identity embedding"
+      ],
+      "conditioning_methods": [
+        "reference images",
+        "text conditioning"
+      ],
+      "relevance_score": 4,
+      "relevance_rationale": "Reusable reference-conditioned personalization method for realistic human photo generation.",
+      "code_status": "official_inference_only",
+      "implementation_coverage": "Official inference pipeline, local notebooks/Gradio, ControlNet/T2I-Adapter/IP-Adapter integrations, and adapter weights. The paper's training code and dataset are not released.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:photomaker customizing realistic human photos via stacked id embedding",
+        "arxiv:2312.04461",
+        "venue:Li_2024_CVPR_PhotoMaker",
+        "code:TencentARC/PhotoMaker"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official TencentARC repository documents inference and released adapter weights but no training code. Inference: taxonomy and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "06_Reference_Conditioned_Character_Identity",
+      "secondary_categories": [
+        "08_Foundation_Models_and_Conditioning_Architectures"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2312.04461",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "eccv-2024-brushnet",
+      "title": "BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion",
+      "aliases": [
+        "BrushNet"
+      ],
+      "authors": [
+        "Xuan Ju",
+        "Xian Liu",
+        "Xintao Wang",
+        "Yuxuan Bian",
+        "Ying Shan",
+        "Qiang Xu"
+      ],
+      "year": 2024,
+      "venue": "ECCV",
+      "track": "main",
+      "identifiers": {
+        "doi": "10.1007/978-3-031-72661-3_9",
+        "openreview": "",
+        "venue": "ECCV2024-1434",
+        "arxiv": "2403.06976"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://eccv.ecva.net/virtual/2024/poster/1434"
+      },
+      "urls": {
+        "paper": "https://eccv.ecva.net/virtual/2024/poster/1434",
+        "arxiv": "https://arxiv.org/abs/2403.06976",
+        "project": "https://tencentarc.github.io/BrushNet/",
+        "code": "https://github.com/TencentARC/BrushNet",
+        "demo": "https://huggingface.co/spaces/TencentARC/BrushNet",
+        "model": "https://drive.google.com/drive/folders/1fqmS1CEOvXCxNWFrsSYd_jHYXxrydh1n",
+        "dataset": "https://huggingface.co/datasets/random123123/BrushData"
+      },
+      "topics": [
+        "image inpainting",
+        "diffusion",
+        "controllable generation"
+      ],
+      "tasks": [
+        "text-guided image inpainting"
+      ],
+      "architectures": [
+        "dual-branch diffusion model",
+        "U-Net"
+      ],
+      "base_models": [
+        "Stable Diffusion",
+        "SDXL"
+      ],
+      "training_methods": [
+        "decomposed dual-branch diffusion"
+      ],
+      "conditioning_methods": [
+        "masked image",
+        "text conditioning"
+      ],
+      "relevance_score": 4,
+      "relevance_rationale": "Transferable plug-and-play dual-branch diffusion method for text-guided image inpainting across pretrained image generators.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official training, inference, evaluation, SD1.5/SDXL checkpoints, and Gradio demo. The official README links BrushData/BrushBench access and an endorsed Hugging Face mirror of the full BrushData release.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:brushnet a plug and play image inpainting model with decomposed dual branch diffusion",
+        "doi:10.1007/978-3-031-72661-3_9",
+        "arxiv:2403.06976",
+        "venue:ECCV2024-1434",
+        "code:TencentARC/BrushNet"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, ECCV 2024 poster/main-conference identity, and authoritative proceedings URL from the official ECVA ECCV page. Supplemental verification: the official TencentARC repository identifies itself as the ECCV 2024 implementation and provides training, inference, and evaluation materials. Inference: taxonomy and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [
+        "02_Object_Subject_Insertion_and_Compositing"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2403.06976",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "iclr-2024-sdxl",
@@ -1072,7 +1380,7 @@
         "arxiv": "https://arxiv.org/abs/2307.01952",
         "project": "",
         "code": "https://github.com/Stability-AI/generative-models",
-        "demo": "",
+        "demo": "https://huggingface.co/spaces/stabilityai/stable-diffusion-xl-base-1.0",
         "model": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
         "dataset": ""
       },
@@ -1102,92 +1410,26 @@
       "relevance_score": 5,
       "relevance_rationale": "Foundation text-to-image model extending latent diffusion with a larger U-Net and new conditioning schemes.",
       "code_status": "official_full",
-      "implementation_coverage": "Official inference/training framework and official base model are available.",
+      "implementation_coverage": "Official generative-model framework includes SDXL inference and example training configurations; official base and refiner weights are available. The paper's full proprietary training data is not released.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:sdxl improving latent diffusion models for high resolution image synthesis",
         "openreview:di52zR8xgf",
         "arxiv:2307.01952",
         "model:stabilityai/stable-diffusion-xl-base-1.0"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
-    },
-    {
-      "id": "eccv-2024-brushnet",
-      "title": "BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion",
-      "aliases": [
-        "BrushNet"
-      ],
-      "authors": [
-        "Xuan Ju",
-        "Xian Liu",
-        "Xintao Wang",
-        "Yuxuan Bian",
-        "Ying Shan",
-        "Qiang Xu"
-      ],
-      "year": 2024,
-      "venue": "ECCV",
-      "track": "main",
-      "identifiers": {
-        "doi": "10.1007/978-3-031-72661-3_9",
-        "openreview": "",
-        "venue": "ECCV2024-1434",
-        "arxiv": "2403.06976"
-      },
-      "acceptance_evidence": {
-        "type": "official_proceedings",
-        "url": "https://eccv.ecva.net/virtual/2024/poster/1434"
-      },
-      "urls": {
-        "paper": "https://eccv.ecva.net/virtual/2024/poster/1434",
-        "arxiv": "https://arxiv.org/abs/2403.06976",
-        "project": "https://tencentarc.github.io/BrushNet/",
-        "code": "https://github.com/TencentARC/BrushNet",
-        "demo": "",
-        "model": "",
-        "dataset": ""
-      },
-      "topics": [
-        "image inpainting",
-        "diffusion",
-        "controllable generation"
-      ],
-      "tasks": [
-        "text-guided image inpainting"
-      ],
-      "architectures": [
-        "dual-branch diffusion model",
-        "U-Net"
-      ],
-      "base_models": [
-        "Stable Diffusion",
-        "SDXL"
-      ],
-      "training_methods": [
-        "decomposed dual-branch diffusion"
-      ],
-      "conditioning_methods": [
-        "masked image",
-        "text conditioning"
-      ],
-      "relevance_score": 4,
-      "relevance_rationale": "Transferable plug-and-play dual-branch diffusion method for text-guided image inpainting across pretrained image generators.",
-      "code_status": "official_full",
-      "implementation_coverage": "Official repository provides training, inference, and evaluation scripts with released checkpoints and accompanying benchmark resources.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:brushnet a plug and play image inpainting model with decomposed dual branch diffusion",
-        "doi:10.1007/978-3-031-72661-3_9",
-        "arxiv:2403.06976",
-        "venue:ECCV2024-1434",
-        "code:TencentARC/BrushNet"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, ECCV 2024 poster/main-conference identity, and authoritative proceedings URL from the official ECVA ECCV page. Supplemental verification: the official TencentARC repository identifies itself as the ECCV 2024 implementation and provides training, inference, and evaluation materials. Inference: taxonomy and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2307.01952",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "icml-2024-scaling-rectified-flow-transformers",
@@ -1231,8 +1473,8 @@
         "arxiv": "https://arxiv.org/abs/2403.03206",
         "project": "",
         "code": "https://github.com/Stability-AI/sd3-ref",
-        "demo": "",
-        "model": "",
+        "demo": "https://huggingface.co/spaces/stabilityai/stable-diffusion-3-medium",
+        "model": "https://huggingface.co/stabilityai/stable-diffusion-3-medium",
         "dataset": ""
       },
       "topics": [
@@ -1260,89 +1502,26 @@
       "relevance_score": 5,
       "relevance_rationale": "Foundational scaled rectified-flow and multimodal-transformer design for high-resolution text-to-image synthesis.",
       "code_status": "official_inference_only",
-      "implementation_coverage": "Official reference inference implementation; full training recipe is not released there.",
+      "implementation_coverage": "Official repository is explicitly an inference-only reference implementation. Official gated SD3 Medium weights and a hosted demo are available; the paper's full training recipe and dataset are not released.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:scaling rectified flow transformers for high resolution image synthesis",
         "arxiv:2403.03206",
         "venue:pmlr-v235-esser24a",
         "code:Stability-AI/sd3-ref"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICML source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
-    },
-    {
-      "id": "cvpr-2024-photomaker",
-      "title": "PhotoMaker: Customizing Realistic Human Photos via Stacked ID Embedding",
-      "aliases": [
-        "PhotoMaker"
-      ],
-      "authors": [
-        "Zhen Li",
-        "Mingdeng Cao",
-        "Xintao Wang",
-        "Zhongang Qi",
-        "Ming-Ming Cheng",
-        "Ying Shan"
-      ],
-      "year": 2024,
-      "venue": "CVPR",
-      "track": "main",
-      "identifiers": {
-        "doi": "",
-        "openreview": "",
-        "venue": "Li_2024_CVPR_PhotoMaker",
-        "arxiv": "2312.04461"
-      },
-      "acceptance_evidence": {
-        "type": "official_proceedings",
-        "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Li_PhotoMaker_Customizing_Realistic_Human_Photos_via_Stacked_ID_Embedding_CVPR_2024_paper.html"
-      },
-      "urls": {
-        "paper": "https://openaccess.thecvf.com/content/CVPR2024/html/Li_PhotoMaker_Customizing_Realistic_Human_Photos_via_Stacked_ID_Embedding_CVPR_2024_paper.html",
-        "arxiv": "https://arxiv.org/abs/2312.04461",
-        "project": "https://photo-maker.github.io/",
-        "code": "https://github.com/TencentARC/PhotoMaker",
-        "demo": "",
-        "model": "",
-        "dataset": ""
-      },
-      "topics": [
-        "personalization",
-        "identity conditioning"
-      ],
-      "tasks": [
-        "personalized human image generation"
-      ],
-      "architectures": [
-        "latent diffusion",
-        "adapter"
-      ],
-      "base_models": [
-        "SDXL"
-      ],
-      "training_methods": [
-        "stacked identity embedding"
-      ],
-      "conditioning_methods": [
-        "reference images",
-        "text conditioning"
-      ],
-      "relevance_score": 4,
-      "relevance_rationale": "Reusable reference-conditioned personalization method for realistic human photo generation.",
-      "code_status": "official_inference_only",
-      "implementation_coverage": "Official repository provides the PhotoMaker inference pipeline, local demos, and released adapter weights; it does not provide the paper's training code.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:photomaker customizing realistic human photos via stacked id embedding",
-        "arxiv:2312.04461",
-        "venue:Li_2024_CVPR_PhotoMaker",
-        "code:TencentARC/PhotoMaker"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official TencentARC repository documents inference and released adapter weights but no training code. Inference: taxonomy and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICML source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2403.03206",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "siggraph-2024-layerdiffuse",
@@ -1372,9 +1551,9 @@
         "paper": "https://dl.acm.org/doi/10.1145/3658150",
         "arxiv": "https://arxiv.org/abs/2402.17113",
         "project": "https://lllyasviel.github.io/pages/layerdiffuse/",
-        "code": "https://github.com/lllyasviel/LayerDiffuse",
+        "code": "https://github.com/lllyasviel/LayerDiffuse_DiffusersCLI",
         "demo": "",
-        "model": "",
+        "model": "https://huggingface.co/LayerDiffusion/layerdiffusion-v1",
         "dataset": ""
       },
       "topics": [
@@ -1403,17 +1582,367 @@
       "relevance_score": 3,
       "relevance_rationale": "Broadly transferable applied method for native transparent and layered image generation.",
       "code_status": "official_inference_only",
-      "implementation_coverage": "Official inference integrations and released adapters; complete dataset/training code was not confirmed.",
+      "implementation_coverage": "Official inference integrations and released SD1.5/SDXL transparency adapters. The pure-Diffusers implementation is work in progress and does not cover all layer modes; dataset and training code remain planned.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:transparent image layer diffusion using latent transparency",
         "doi:10.1145/3658150",
         "arxiv:2402.17113",
         "code:lllyasviel/LayerDiffuse"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative SIGGRAPH source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative SIGGRAPH source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "05_Layered_Representation_and_Editable_Compositing",
+      "secondary_categories": [
+        "08_Foundation_Models_and_Conditioning_Architectures"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2402.17113",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "cvpr-2025-diffusion-self-distillation",
+      "title": "Diffusion Self-Distillation for Zero-Shot Customized Image Generation",
+      "aliases": [
+        "Diffusion Self-Distillation",
+        "DSD"
+      ],
+      "authors": [
+        "Shengqu Cai",
+        "Eric Ryan Chan",
+        "Yunzhi Zhang",
+        "Leonidas Guibas",
+        "Jiajun Wu",
+        "Gordon Wetzstein"
+      ],
+      "year": 2025,
+      "venue": "CVPR",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Cai_2025_CVPR",
+        "arxiv": "2411.18616"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Cai_Diffusion_Self-Distillation_for_Zero-Shot_Customized_Image_Generation_CVPR_2025_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2025/html/Cai_Diffusion_Self-Distillation_for_Zero-Shot_Customized_Image_Generation_CVPR_2025_paper.html",
+        "arxiv": "https://arxiv.org/abs/2411.18616",
+        "project": "",
+        "code": "https://github.com/primecai/diffusion-self-distillation",
+        "demo": "https://huggingface.co/spaces/primecai/diffusion-self-distillation",
+        "model": "https://huggingface.co/primecai/dsd_model",
+        "dataset": "https://huggingface.co/datasets/primecai/dsd_data"
+      },
+      "topics": [
+        "customization",
+        "self-distillation",
+        "diffusion"
+      ],
+      "tasks": [
+        "zero-shot customized image generation",
+        "relighting"
+      ],
+      "architectures": [
+        "text-image conditional diffusion"
+      ],
+      "base_models": [
+        "text-to-image diffusion model"
+      ],
+      "training_methods": [
+        "self-generated paired data",
+        "self-distillation"
+      ],
+      "conditioning_methods": [
+        "reference image",
+        "text conditioning"
+      ],
+      "relevance_score": 4,
+      "relevance_rationale": "Transferable reference-conditioned customization method that self-generates its paired training data.",
+      "code_status": "official_inference_only",
+      "implementation_coverage": "Official subject-preserving inference, pretrained LoRA weights, hosted demo, and released experiment data. Training code and the relighting model remain unreleased.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:diffusion self distillation for zero shot customized image generation",
+        "arxiv:2411.18616",
+        "venue:Cai_2025_CVPR",
+        "code:primecai/diffusion-self-distillation"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official repository releases subject-preserving inference and weights, while training code and relighting remain unreleased. Inference: taxonomy and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P2",
+      "primary_category": "06_Reference_Conditioned_Character_Identity",
+      "secondary_categories": [
+        "08_Foundation_Models_and_Conditioning_Architectures"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2411.18616",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "cvpr-2025-omnigen",
+      "title": "OmniGen: Unified Image Generation",
+      "aliases": [
+        "OmniGen"
+      ],
+      "authors": [
+        "Shitao Xiao",
+        "Yueze Wang",
+        "Junjie Zhou",
+        "Huaying Yuan",
+        "Xingrun Xing",
+        "Ruiran Yan",
+        "Chaofan Li",
+        "Shuting Wang",
+        "Tiejun Huang",
+        "Zheng Liu"
+      ],
+      "year": 2025,
+      "venue": "CVPR",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Xiao_2025_CVPR",
+        "arxiv": "2409.11340"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Xiao_OmniGen_Unified_Image_Generation_CVPR_2025_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2025/html/Xiao_OmniGen_Unified_Image_Generation_CVPR_2025_paper.html",
+        "arxiv": "https://arxiv.org/abs/2409.11340",
+        "project": "",
+        "code": "https://github.com/VectorSpaceLab/OmniGen",
+        "demo": "https://huggingface.co/spaces/Shitao/OmniGen",
+        "model": "https://huggingface.co/Shitao/OmniGen-v1",
+        "dataset": "https://huggingface.co/collections/yzwang/x2i-dataset-674c66d1d700f7f816a9590d"
+      },
+      "topics": [
+        "unified image generation",
+        "diffusion transformer",
+        "foundation model"
+      ],
+      "tasks": [
+        "text-to-image generation",
+        "image editing",
+        "subject-driven generation"
+      ],
+      "architectures": [
+        "Diffusion Transformer"
+      ],
+      "base_models": [],
+      "training_methods": [
+        "unified instruction training"
+      ],
+      "conditioning_methods": [
+        "text and image instructions"
+      ],
+      "relevance_score": 5,
+      "relevance_rationale": "Foundation diffusion model unifying text-to-image, editing, subject, and visual-conditional tasks.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official training/fine-tuning, inference, model weights, Hugging Face demo, and X2I dataset collection are public.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:omnigen unified image generation",
+        "arxiv:2409.11340",
+        "venue:Xiao_2025_CVPR",
+        "code:VectorSpaceLab/OmniGen"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2409.11340",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "cvpr-2025-visual-persona",
+      "title": "Visual Persona: Foundation Model for Full-Body Human Customization",
+      "aliases": [
+        "Visual Persona"
+      ],
+      "authors": [
+        "Jisu Nam",
+        "Soowon Son",
+        "Zhan Xu",
+        "Jing Shi",
+        "Difan Liu",
+        "Feng Liu",
+        "Seungryong Kim",
+        "Yang Zhou"
+      ],
+      "year": 2025,
+      "venue": "CVPR",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Nam_2025_CVPR",
+        "arxiv": "2503.15406"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Nam_Visual_Persona_Foundation_Model_for_Full-Body_Human_Customization_CVPR_2025_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2025/html/Nam_Visual_Persona_Foundation_Model_for_Full-Body_Human_Customization_CVPR_2025_paper.html",
+        "arxiv": "https://arxiv.org/abs/2503.15406",
+        "project": "https://cvlab-kaist.github.io/Visual-Persona/",
+        "code": "https://github.com/cvlab-kaist/Visual-Persona",
+        "demo": "",
+        "model": "https://drive.google.com/drive/folders/1NIYbLrKL05nEbStpq4LEhVjcjFwpUWkG",
+        "dataset": ""
+      },
+      "topics": [
+        "full-body personalization",
+        "reference conditioning",
+        "identity preservation"
+      ],
+      "tasks": [
+        "full-body human customization",
+        "pose-guided generation",
+        "virtual try-on"
+      ],
+      "architectures": [
+        "transformer encoder-decoder",
+        "latent diffusion"
+      ],
+      "base_models": [
+        "SDXL",
+        "IP-Adapter"
+      ],
+      "training_methods": [
+        "paired human fine-tuning"
+      ],
+      "conditioning_methods": [
+        "body-part identity embeddings",
+        "ControlNet"
+      ],
+      "relevance_score": 4,
+      "relevance_rationale": "A broadly transferable reference-conditioned personalization method preserving full-body identity and appearance.",
+      "code_status": "official_inference_only",
+      "implementation_coverage": "Official inference scripts cover base, ControlNet, story, try-on, and anime customization, with pretrained checkpoints on Google Drive. Training code and the Visual Persona-500K training corpus are not released.",
+      "priority": "P2",
+      "primary_category": "06_Reference_Conditioned_Character_Identity",
+      "secondary_categories": [
+        "08_Foundation_Models_and_Conditioning_Architectures"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2503.15406",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": "",
+      "first_seen_date": "2026-08-26",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "arxiv:2503.15406",
+        "venue:Nam_2025_CVPR",
+        "title:visual persona foundation model for full body human customization"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, venue, year, and main-conference identity from CVF Open Access; implementation surfaces from the official repository. Inference: relevance, priority, taxonomy, and coverage are curator assessments. PDF binary retrieval was unavailable."
+    },
+    {
+      "id": "iccv-2025-layered-diffusion-brushes",
+      "title": "Streamlining Image Editing with Layered Diffusion Brushes",
+      "aliases": [
+        "Layered Diffusion Brushes",
+        "LDB"
+      ],
+      "authors": [
+        "Peyman Gholami",
+        "Robert Xiao"
+      ],
+      "year": 2025,
+      "venue": "ICCV",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Gholami_2025_ICCV",
+        "arxiv": "2405.00313"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Gholami_Streamlining_Image_Editing_with_Layered_Diffusion_Brushes_ICCV_2025_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/ICCV2025/html/Gholami_Streamlining_Image_Editing_with_Layered_Diffusion_Brushes_ICCV_2025_paper.html",
+        "arxiv": "https://arxiv.org/abs/2405.00313",
+        "project": "https://layered-diffusion-brushes.github.io/",
+        "code": "",
+        "demo": "https://layered-diffusion-brushes.github.io/",
+        "model": "",
+        "dataset": ""
+      },
+      "topics": [
+        "layered editing",
+        "diffusion",
+        "interactive generation"
+      ],
+      "tasks": [
+        "localized image editing",
+        "non-destructive layered editing"
+      ],
+      "architectures": [
+        "latent diffusion"
+      ],
+      "base_models": [
+        "Stable Diffusion"
+      ],
+      "training_methods": [
+        "training-free latent caching"
+      ],
+      "conditioning_methods": [
+        "mask guidance",
+        "text prompts"
+      ],
+      "relevance_score": 3,
+      "relevance_rationale": "Broadly transferable applied workflow for independent, mask-guided, non-destructive layered diffusion edits.",
+      "code_status": "official_demo_only",
+      "implementation_coverage": "Official project page includes a pre-generated interactive editor demonstration. The page still marks code as coming soon; no official weights or dataset release was confirmed.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:streamlining image editing with layered diffusion brushes",
+        "arxiv:2405.00313",
+        "venue:Gholami_2025_ICCV",
+        "project:layered-diffusion-brushes"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICCV source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P2",
+      "primary_category": "05_Layered_Representation_and_Editable_Compositing",
+      "secondary_categories": [
+        "08_Foundation_Models_and_Conditioning_Architectures"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2405.00313",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
       "id": "iclr-2025-sana",
@@ -1452,8 +1981,8 @@
         "arxiv": "https://arxiv.org/abs/2410.10629",
         "project": "https://nvlabs.github.io/Sana/",
         "code": "https://github.com/NVlabs/Sana",
-        "demo": "",
-        "model": "",
+        "demo": "https://nv-sana.mit.edu/",
+        "model": "https://huggingface.co/collections/Efficient-Large-Model/sana",
         "dataset": ""
       },
       "topics": [
@@ -1479,380 +2008,114 @@
       "relevance_score": 5,
       "relevance_rationale": "Foundation text-to-image architecture combining deep latent compression, linear DiT, and flow-based sampling.",
       "code_status": "official_full",
-      "implementation_coverage": "Official training, inference, and released-model code.",
+      "implementation_coverage": "Official full framework with image training, inference, metrics, ControlNet, model zoo, Hugging Face collections, and hosted demos. Training configurations consume public or user-provided WebDataset data; no single paper dataset release is claimed.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:sana efficient high resolution text to image synthesis with linear diffusion transformers",
         "arxiv:2410.10629",
         "venue:34345e243156da67605d4b63d71c8d98",
         "code:NVlabs/Sana"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICLR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2410.10629",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
     },
     {
-      "id": "cvpr-2025-omnigen",
-      "title": "OmniGen: Unified Image Generation",
+      "id": "cvpr-2026-dreamshot",
+      "title": "DreamShot: Personalized Storyboard Synthesis with Video Diffusion Prior",
       "aliases": [
-        "OmniGen"
+        "DreamShot"
       ],
       "authors": [
-        "Shitao Xiao",
-        "Yueze Wang",
-        "Junjie Zhou",
-        "Huaying Yuan",
-        "Xingrun Xing",
-        "Ruiran Yan",
-        "Chaofan Li",
-        "Shuting Wang",
-        "Tiejun Huang",
-        "Zheng Liu"
+        "Junjia Huang",
+        "Binbin Yang",
+        "Pengxiang Yan",
+        "Jiyang Liu",
+        "Bin Xia",
+        "Zhao Wang",
+        "Yitong Wang",
+        "Liang Lin",
+        "Guanbin Li"
       ],
-      "year": 2025,
+      "year": 2026,
       "venue": "CVPR",
       "track": "main",
       "identifiers": {
         "doi": "",
         "openreview": "",
-        "venue": "Xiao_2025_CVPR",
-        "arxiv": "2409.11340"
+        "venue": "Huang_2026_CVPR",
+        "arxiv": "2604.17195"
       },
       "acceptance_evidence": {
         "type": "official_proceedings",
-        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Xiao_OmniGen_Unified_Image_Generation_CVPR_2025_paper.html"
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Huang_DreamShot_Personalized_Storyboard_Synthesis_with_Video_Diffusion_Prior_CVPR_2026_paper.html"
       },
       "urls": {
-        "paper": "https://openaccess.thecvf.com/content/CVPR2025/html/Xiao_OmniGen_Unified_Image_Generation_CVPR_2025_paper.html",
-        "arxiv": "https://arxiv.org/abs/2409.11340",
-        "project": "",
-        "code": "https://github.com/VectorSpaceLab/OmniGen",
+        "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Huang_DreamShot_Personalized_Storyboard_Synthesis_with_Video_Diffusion_Prior_CVPR_2026_paper.html",
+        "arxiv": "https://arxiv.org/abs/2604.17195",
+        "project": "https://ll3rd.github.io/DreamShot/",
+        "code": "https://github.com/dihy16/DreamShot-Code",
         "demo": "",
-        "model": "",
-        "dataset": ""
+        "model": "https://huggingface.co/LL3RD/DreamShot",
+        "dataset": "https://huggingface.co/datasets/LL3RD/DreamShot"
       },
       "topics": [
-        "unified image generation",
-        "diffusion transformer",
-        "foundation model"
+        "personalized storyboard generation",
+        "multi-reference identity conditioning"
       ],
       "tasks": [
-        "text-to-image generation",
-        "image editing",
-        "subject-driven generation"
+        "text-to-shot",
+        "reference-to-shot",
+        "story continuation"
       ],
       "architectures": [
-        "Diffusion Transformer"
-      ],
-      "base_models": [],
-      "training_methods": [
-        "unified instruction training"
-      ],
-      "conditioning_methods": [
-        "text and image instructions"
-      ],
-      "relevance_score": 5,
-      "relevance_rationale": "Foundation diffusion model unifying text-to-image, editing, subject, and visual-conditional tasks.",
-      "code_status": "official_full",
-      "implementation_coverage": "Official inference, training, and model code linked by the paper.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:omnigen unified image generation",
-        "arxiv:2409.11340",
-        "venue:Xiao_2025_CVPR",
-        "code:VectorSpaceLab/OmniGen"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
-    },
-    {
-      "id": "cvpr-2025-diffusion-self-distillation",
-      "title": "Diffusion Self-Distillation for Zero-Shot Customized Image Generation",
-      "aliases": [
-        "Diffusion Self-Distillation",
-        "DSD"
-      ],
-      "authors": [
-        "Shengqu Cai",
-        "Eric Ryan Chan",
-        "Yunzhi Zhang",
-        "Leonidas Guibas",
-        "Jiajun Wu",
-        "Gordon Wetzstein"
-      ],
-      "year": 2025,
-      "venue": "CVPR",
-      "track": "main",
-      "identifiers": {
-        "doi": "",
-        "openreview": "",
-        "venue": "Cai_2025_CVPR",
-        "arxiv": "2411.18616"
-      },
-      "acceptance_evidence": {
-        "type": "official_proceedings",
-        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Cai_Diffusion_Self-Distillation_for_Zero-Shot_Customized_Image_Generation_CVPR_2025_paper.html"
-      },
-      "urls": {
-        "paper": "https://openaccess.thecvf.com/content/CVPR2025/html/Cai_Diffusion_Self-Distillation_for_Zero-Shot_Customized_Image_Generation_CVPR_2025_paper.html",
-        "arxiv": "https://arxiv.org/abs/2411.18616",
-        "project": "",
-        "code": "https://github.com/primecai/diffusion-self-distillation",
-        "demo": "",
-        "model": "",
-        "dataset": ""
-      },
-      "topics": [
-        "customization",
-        "self-distillation",
-        "diffusion"
-      ],
-      "tasks": [
-        "zero-shot customized image generation",
-        "relighting"
-      ],
-      "architectures": [
-        "text-image conditional diffusion"
+        "video diffusion transformer"
       ],
       "base_models": [
-        "text-to-image diffusion model"
+        "Wan 2.1"
       ],
       "training_methods": [
-        "self-generated paired data",
-        "self-distillation"
+        "supervised fine-tuning",
+        "reinforcement learning",
+        "LoRA distillation"
       ],
       "conditioning_methods": [
-        "reference image",
-        "text conditioning"
-      ],
-      "relevance_score": 4,
-      "relevance_rationale": "Transferable reference-conditioned customization method that self-generates its paired training data.",
-      "code_status": "official_inference_only",
-      "implementation_coverage": "Official repository provides subject-preserving inference and pretrained weights; training code and the relighting model are not released.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:diffusion self distillation for zero shot customized image generation",
-        "arxiv:2411.18616",
-        "venue:Cai_2025_CVPR",
-        "code:primecai/diffusion-self-distillation"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official repository releases subject-preserving inference and weights, while training code and relighting remain unreleased. Inference: taxonomy and relevance score were assigned during this run."
-    },
-    {
-      "id": "iccv-2025-layered-diffusion-brushes",
-      "title": "Streamlining Image Editing with Layered Diffusion Brushes",
-      "aliases": [
-        "Layered Diffusion Brushes",
-        "LDB"
-      ],
-      "authors": [
-        "Peyman Gholami",
-        "Robert Xiao"
-      ],
-      "year": 2025,
-      "venue": "ICCV",
-      "track": "main",
-      "identifiers": {
-        "doi": "",
-        "openreview": "",
-        "venue": "Gholami_2025_ICCV",
-        "arxiv": "2405.00313"
-      },
-      "acceptance_evidence": {
-        "type": "official_proceedings",
-        "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Gholami_Streamlining_Image_Editing_with_Layered_Diffusion_Brushes_ICCV_2025_paper.html"
-      },
-      "urls": {
-        "paper": "https://openaccess.thecvf.com/content/ICCV2025/html/Gholami_Streamlining_Image_Editing_with_Layered_Diffusion_Brushes_ICCV_2025_paper.html",
-        "arxiv": "https://arxiv.org/abs/2405.00313",
-        "project": "https://layered-diffusion-brushes.github.io/",
-        "code": "",
-        "demo": "",
-        "model": "",
-        "dataset": ""
-      },
-      "topics": [
-        "layered editing",
-        "diffusion",
-        "interactive generation"
-      ],
-      "tasks": [
-        "localized image editing",
-        "non-destructive layered editing"
-      ],
-      "architectures": [
-        "latent diffusion"
-      ],
-      "base_models": [
-        "Stable Diffusion"
-      ],
-      "training_methods": [
-        "training-free latent caching"
-      ],
-      "conditioning_methods": [
-        "mask guidance",
-        "text prompts"
+        "multi-reference role conditioning",
+        "role-attention consistency"
       ],
       "relevance_score": 3,
-      "relevance_rationale": "Broadly transferable applied workflow for independent, mask-guided, non-destructive layered diffusion edits.",
-      "code_status": "unclear",
-      "implementation_coverage": "Official project page verified; repository coverage was not confirmed in this run.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "relevance_rationale": "A transferable multi-reference identity-control method for coherent multi-shot generative imagery.",
+      "code_status": "official_inference_only",
+      "implementation_coverage": "Official single- and multi-GPU inference plus SFT/RL LoRA checkpoints are public. The dataset repository exists but the full movie-derived training dataset remains under compliance review; training code is pending that release.",
+      "priority": "P2",
+      "primary_category": "06_Reference_Conditioned_Character_Identity",
+      "secondary_categories": [
+        "08_Foundation_Models_and_Conditioning_Architectures"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2604.17195",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": "",
+      "first_seen_date": "2026-08-26",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
-        "title:streamlining image editing with layered diffusion brushes",
-        "arxiv:2405.00313",
-        "venue:Gholami_2025_ICCV",
-        "project:layered-diffusion-brushes"
+        "arxiv:2604.17195",
+        "venue:Huang_2026_CVPR",
+        "title:dreamshot personalized storyboard synthesis with video diffusion prior"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative ICCV source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
-    },
-    {
-      "id": "cvpr-2026-pixeldit",
-      "title": "PixelDiT: Pixel Diffusion Transformers for Image Generation",
-      "aliases": [
-        "PixelDiT"
-      ],
-      "authors": [
-        "Yongsheng Yu",
-        "Wei Xiong",
-        "Weili Nie",
-        "Yichen Sheng",
-        "Shiqiu Liu",
-        "Jiebo Luo"
-      ],
-      "year": 2026,
-      "venue": "CVPR",
-      "track": "main",
-      "identifiers": {
-        "doi": "",
-        "openreview": "",
-        "venue": "Yu_2026_CVPR",
-        "arxiv": "2511.20645"
-      },
-      "acceptance_evidence": {
-        "type": "official_proceedings",
-        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Yu_PixelDiT_Pixel_Diffusion_Transformers_for_Image_Generation_CVPR_2026_paper.html"
-      },
-      "urls": {
-        "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Yu_PixelDiT_Pixel_Diffusion_Transformers_for_Image_Generation_CVPR_2026_paper.html",
-        "arxiv": "https://arxiv.org/abs/2511.20645",
-        "project": "",
-        "code": "https://github.com/NVlabs/PixelDiT",
-        "demo": "",
-        "model": "https://huggingface.co/nvidia/PixelDiT-1300M-1024px",
-        "dataset": ""
-      },
-      "topics": [
-        "pixel-space diffusion",
-        "diffusion transformer",
-        "text-to-image"
-      ],
-      "tasks": [
-        "pixel-space image generation",
-        "text-to-image generation"
-      ],
-      "architectures": [
-        "patch-level DiT",
-        "pixel-level DiT"
-      ],
-      "base_models": [],
-      "training_methods": [
-        "end-to-end pixel diffusion"
-      ],
-      "conditioning_methods": [
-        "text conditioning"
-      ],
-      "relevance_score": 5,
-      "relevance_rationale": "Core end-to-end pixel-space diffusion-transformer architecture eliminating a separate autoencoder.",
-      "code_status": "official_full",
-      "implementation_coverage": "Official repository provides training and inference for class-to-image and text-to-image PixelDiT, plus pretrained ImageNet and 1024px text-to-image checkpoints.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:pixeldit pixel diffusion transformers for image generation",
-        "arxiv:2511.20645",
-        "venue:Yu_2026_CVPR",
-        "code:NVlabs/PixelDiT"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official NVlabs repository releases class-to-image and text-to-image training, inference, and pretrained models. Inference: taxonomy and relevance score were assigned during this run."
-    },
-    {
-      "id": "cvpr-2026-language-free-generative-editing",
-      "title": "Language-Free Generative Editing from One Visual Example",
-      "aliases": [
-        "Visual Diffusion Conditioning",
-        "VDC"
-      ],
-      "authors": [
-        "Omar Elezabi",
-        "Eduard Zamfir",
-        "Zongwei Wu",
-        "Radu Timofte"
-      ],
-      "year": 2026,
-      "venue": "CVPR",
-      "track": "main",
-      "identifiers": {
-        "doi": "",
-        "openreview": "",
-        "venue": "Elezabi_2026_CVPR",
-        "arxiv": "2603.25441"
-      },
-      "acceptance_evidence": {
-        "type": "official_proceedings",
-        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Elezabi_Language-Free_Generative_Editing_from_One_Visual_Example_CVPR_2026_paper.html"
-      },
-      "urls": {
-        "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Elezabi_Language-Free_Generative_Editing_from_One_Visual_Example_CVPR_2026_paper.html",
-        "arxiv": "https://arxiv.org/abs/2603.25441",
-        "project": "https://omaralezaby.github.io/vdc/",
-        "code": "https://github.com/omarAlezaby/VDC",
-        "demo": "",
-        "model": "",
-        "dataset": ""
-      },
-      "topics": [
-        "image editing",
-        "visual conditioning",
-        "diffusion"
-      ],
-      "tasks": [
-        "example-based image editing"
-      ],
-      "architectures": [
-        "latent diffusion"
-      ],
-      "base_models": [
-        "text-guided diffusion model"
-      ],
-      "training_methods": [
-        "training-free condition steering",
-        "DDIM inversion correction"
-      ],
-      "conditioning_methods": [
-        "paired visual example"
-      ],
-      "relevance_score": 4,
-      "relevance_rationale": "General-purpose training-free editing framework that derives conditions directly from visual examples.",
-      "code_status": "official_full",
-      "implementation_coverage": "Official full release includes one-shot steering-condition optimization, inference with and without inversion correction, experimental data and optimized conditions, and SANA integration for the training-free method.",
-      "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
-      "dedupe_keys": [
-        "title:language free generative editing from one visual example",
-        "arxiv:2603.25441",
-        "venue:Elezabi_2026_CVPR",
-        "project:vdc",
-        "code:omarAlezaby/VDC"
-      ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official VDC repository labels a full code release and documents condition optimization plus both inference paths; the method itself is training-free. Inference: taxonomy and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, venue, year, and main-conference identity from CVF Open Access; release scope from the official repository. Inference: relevance, priority, taxonomy, and coverage are curator assessments. PDF binary retrieval was unavailable."
     },
     {
       "id": "cvpr-2026-hicogen",
@@ -1915,16 +2178,444 @@
       "relevance_score": 4,
       "relevance_rationale": "Transferable controllable-generation method for improving compositional adherence in text-to-image diffusion models.",
       "code_status": "not_found",
-      "implementation_coverage": "No official implementation was confirmed in this run.",
+      "implementation_coverage": "Official proceedings and arXiv paper are available. No official code repository, model weights, hosted demo, or dataset release was confirmed.",
       "first_seen_date": "2026-08-25",
-      "last_verified_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
       "dedupe_keys": [
         "title:hicogen hierarchical compositional text to image generation in diffusion models via reinforcement learning",
         "arxiv:2511.19965",
         "venue:Yang_2026_CVPR_HiCoGen"
       ],
-      "report_path": "reports/2026-08-25.md",
-      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run."
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Inference: taxonomy, implementation coverage, and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P2",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2511.19965",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "cvpr-2026-language-free-generative-editing",
+      "title": "Language-Free Generative Editing from One Visual Example",
+      "aliases": [
+        "Visual Diffusion Conditioning",
+        "VDC"
+      ],
+      "authors": [
+        "Omar Elezabi",
+        "Eduard Zamfir",
+        "Zongwei Wu",
+        "Radu Timofte"
+      ],
+      "year": 2026,
+      "venue": "CVPR",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Elezabi_2026_CVPR",
+        "arxiv": "2603.25441"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Elezabi_Language-Free_Generative_Editing_from_One_Visual_Example_CVPR_2026_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Elezabi_Language-Free_Generative_Editing_from_One_Visual_Example_CVPR_2026_paper.html",
+        "arxiv": "https://arxiv.org/abs/2603.25441",
+        "project": "https://omaralezaby.github.io/vdc/",
+        "code": "https://github.com/omarAlezaby/VDC",
+        "demo": "",
+        "model": "",
+        "dataset": "https://drive.google.com/drive/folders/12HkQN4hKoQWuSoV05BuIFlbtxw7zbESQ"
+      },
+      "topics": [
+        "image editing",
+        "visual conditioning",
+        "diffusion"
+      ],
+      "tasks": [
+        "example-based image editing"
+      ],
+      "architectures": [
+        "latent diffusion"
+      ],
+      "base_models": [
+        "text-guided diffusion model"
+      ],
+      "training_methods": [
+        "training-free condition steering",
+        "DDIM inversion correction"
+      ],
+      "conditioning_methods": [
+        "paired visual example"
+      ],
+      "relevance_score": 4,
+      "relevance_rationale": "General-purpose training-free editing framework that derives conditions directly from visual examples.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official full release for the training-free method: one-shot steering-condition optimization, inference with optional inversion correction, experimental data, optimized conditions, and SANA integration. Required base-model weights remain external.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:language free generative editing from one visual example",
+        "arxiv:2603.25441",
+        "venue:Elezabi_2026_CVPR",
+        "project:vdc",
+        "code:omarAlezaby/VDC"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official VDC repository labels a full code release and documents condition optimization plus both inference paths; the method itself is training-free. Inference: taxonomy and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2603.25441",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "cvpr-2026-masked-region-transformer",
+      "title": "Masked Region Transformer for Layered Image Generation and Editing at Scale",
+      "aliases": [
+        "MRT",
+        "Masked Region Transformer"
+      ],
+      "authors": [
+        "Zhicong Tang",
+        "Jingye Chen",
+        "Zhao Zhang",
+        "Mohan Zhou",
+        "Yuchi Liu",
+        "Yifan Pu",
+        "Yalong Bai",
+        "Ethan Smith",
+        "Yuhui Yuan"
+      ],
+      "year": 2026,
+      "venue": "CVPR",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Tang_2026_CVPR",
+        "arxiv": "2605.27235"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Tang_Masked_Region_Transformer_for_Layered_Image_Generation_and_Editing_at_CVPR_2026_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Tang_Masked_Region_Transformer_for_Layered_Image_Generation_and_Editing_at_CVPR_2026_paper.html",
+        "arxiv": "https://arxiv.org/abs/2605.27235",
+        "project": "https://mrt-cvpr.github.io/",
+        "code": "",
+        "demo": "",
+        "model": "",
+        "dataset": ""
+      },
+      "topics": [
+        "layered image generation",
+        "transparent image editing",
+        "diffusion"
+      ],
+      "tasks": [
+        "text-to-layers",
+        "image-to-layers",
+        "layers-to-layers"
+      ],
+      "architectures": [
+        "masked region diffusion transformer"
+      ],
+      "base_models": [
+        "Qwen-Image"
+      ],
+      "training_methods": [
+        "full-parameter fine-tuning",
+        "diffusion distillation"
+      ],
+      "conditioning_methods": [
+        "selective region masking",
+        "overflow-aware canvas"
+      ],
+      "relevance_score": 3,
+      "relevance_rationale": "A general scalable method for generation and editing of reusable transparent layers.",
+      "code_status": "not_found",
+      "implementation_coverage": "Official CVPR paper and project page are public; no official code repository, model weights, hosted inference demo, or dataset release was confirmed.",
+      "priority": "P1",
+      "primary_category": "05_Layered_Representation_and_Editable_Compositing",
+      "secondary_categories": [
+        "08_Foundation_Models_and_Conditioning_Architectures"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2605.27235",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": "",
+      "first_seen_date": "2026-08-26",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "arxiv:2605.27235",
+        "venue:Tang_2026_CVPR",
+        "title:masked region transformer for layered image generation and editing at scale"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, venue, year, and main-conference identity from CVF Open Access. Inference: relevance, priority, taxonomy, and implementation coverage are curator assessments. PDF binary retrieval was unavailable in the execution environment."
+    },
+    {
+      "id": "cvpr-2026-pixeldit",
+      "title": "PixelDiT: Pixel Diffusion Transformers for Image Generation",
+      "aliases": [
+        "PixelDiT"
+      ],
+      "authors": [
+        "Yongsheng Yu",
+        "Wei Xiong",
+        "Weili Nie",
+        "Yichen Sheng",
+        "Shiqiu Liu",
+        "Jiebo Luo"
+      ],
+      "year": 2026,
+      "venue": "CVPR",
+      "track": "main",
+      "identifiers": {
+        "doi": "",
+        "openreview": "",
+        "venue": "Yu_2026_CVPR",
+        "arxiv": "2511.20645"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Yu_PixelDiT_Pixel_Diffusion_Transformers_for_Image_Generation_CVPR_2026_paper.html"
+      },
+      "urls": {
+        "paper": "https://openaccess.thecvf.com/content/CVPR2026/html/Yu_PixelDiT_Pixel_Diffusion_Transformers_for_Image_Generation_CVPR_2026_paper.html",
+        "arxiv": "https://arxiv.org/abs/2511.20645",
+        "project": "",
+        "code": "https://github.com/NVlabs/PixelDiT",
+        "demo": "",
+        "model": "https://huggingface.co/nvidia/PixelDiT-1300M-1024px",
+        "dataset": ""
+      },
+      "topics": [
+        "pixel-space diffusion",
+        "diffusion transformer",
+        "text-to-image"
+      ],
+      "tasks": [
+        "pixel-space image generation",
+        "text-to-image generation"
+      ],
+      "architectures": [
+        "patch-level DiT",
+        "pixel-level DiT"
+      ],
+      "base_models": [],
+      "training_methods": [
+        "end-to-end pixel diffusion"
+      ],
+      "conditioning_methods": [
+        "text conditioning"
+      ],
+      "relevance_score": 5,
+      "relevance_rationale": "Core end-to-end pixel-space diffusion-transformer architecture eliminating a separate autoencoder.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official class-conditional and text-to-image training/inference code plus pretrained ImageNet and 1024px text-to-image checkpoints. It reuses ImageNet and SANA training data rather than publishing a new dataset.",
+      "first_seen_date": "2026-08-25",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "title:pixeldit pixel diffusion transformers for image generation",
+        "arxiv:2511.20645",
+        "venue:Yu_2026_CVPR",
+        "code:NVlabs/PixelDiT"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: title, authors, year, venue, and main-conference identity from the authoritative CVPR source. Supplemental verification: the official NVlabs repository releases class-to-image and text-to-image training, inference, and pretrained models. Inference: taxonomy and relevance score were assigned during this run. Verified implementation surfaces and PDF availability were re-audited on 2026-08-26. Priority and folder taxonomy are curator inferences. PDF binary retrieval was unavailable in the execution environment; no file is claimed as stored.",
+      "priority": "P1",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2511.20645",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": ""
+    },
+    {
+      "id": "siggraph-2026-motion4motion",
+      "title": "Motion4Motion: Motion Transfer Across Subjects at Inference",
+      "aliases": [
+        "Motion4Motion",
+        "TransPE"
+      ],
+      "authors": [
+        "Ling-Hao Chen",
+        "Zixin Yin",
+        "Duomin Wang",
+        "Xianfang Zeng",
+        "Gang Yu"
+      ],
+      "year": 2026,
+      "venue": "SIGGRAPH",
+      "track": "main",
+      "identifiers": {
+        "doi": "10.1145/3799902.3811062",
+        "openreview": "",
+        "venue": "SIGGRAPH.2026.3811062",
+        "arxiv": "2607.11644"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://dl.acm.org/doi/10.1145/3799902.3811062"
+      },
+      "urls": {
+        "paper": "https://dl.acm.org/doi/10.1145/3799902.3811062",
+        "arxiv": "https://arxiv.org/abs/2607.11644",
+        "project": "https://lhchen.top/Motion4Motion/",
+        "code": "",
+        "demo": "",
+        "model": "",
+        "dataset": ""
+      },
+      "topics": [
+        "motion transfer",
+        "video diffusion",
+        "training-free conditioning"
+      ],
+      "tasks": [
+        "cross-subject motion transfer"
+      ],
+      "architectures": [
+        "video diffusion transformer"
+      ],
+      "base_models": [
+        "WAN-T2V"
+      ],
+      "training_methods": [
+        "training-free inference"
+      ],
+      "conditioning_methods": [
+        "motion flow",
+        "TransPE attention manipulation"
+      ],
+      "relevance_score": 3,
+      "relevance_rationale": "A transferable inference-time conditioning technique for controlling stylized character motion across topologies.",
+      "code_status": "not_found",
+      "implementation_coverage": "Official paper, project page, and video are public. The project code link currently resolves to the GitHub home page; no usable official repository, weights, or dataset were confirmed.",
+      "priority": "P3",
+      "primary_category": "08_Foundation_Models_and_Conditioning_Architectures",
+      "secondary_categories": [],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2607.11644",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": "",
+      "first_seen_date": "2026-08-26",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "doi:10.1145/3799902.3811062",
+        "arxiv:2607.11644",
+        "title:motion4motion motion transfer across subjects at inference"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: SIGGRAPH 2026 conference-paper identity from ACM proceedings. Inference: relevance, priority, taxonomy, and implementation coverage are curator assessments. PDF binary retrieval was unavailable."
+    },
+    {
+      "id": "siggraph-2026-see-through",
+      "title": "See-through: Single-image Layer Decomposition for Anime Characters",
+      "aliases": [
+        "See-through"
+      ],
+      "authors": [
+        "Jian Lin",
+        "Chengze Li",
+        "Haoyun Qin",
+        "Kwun Wang Chan",
+        "Yanghua Jin",
+        "Hanyuan Liu",
+        "Stephen Chun Wang Choy",
+        "Xueting Liu"
+      ],
+      "year": 2026,
+      "venue": "SIGGRAPH",
+      "track": "main",
+      "identifiers": {
+        "doi": "10.1145/3799902.3811209",
+        "openreview": "",
+        "venue": "SIGGRAPH.2026.3811209",
+        "arxiv": "2602.03749"
+      },
+      "acceptance_evidence": {
+        "type": "official_proceedings",
+        "url": "https://dl.acm.org/doi/10.1145/3799902.3811209"
+      },
+      "urls": {
+        "paper": "https://dl.acm.org/doi/10.1145/3799902.3811209",
+        "arxiv": "https://arxiv.org/abs/2602.03749",
+        "project": "",
+        "code": "https://github.com/shitagaki-lab/see-through",
+        "demo": "https://huggingface.co/spaces/24yearsold/see-through-demo",
+        "model": "https://huggingface.co/layerdifforg/seethroughv0.0.2_layerdiff3d",
+        "dataset": ""
+      },
+      "topics": [
+        "layer decomposition",
+        "transparent layers",
+        "anime character generation"
+      ],
+      "tasks": [
+        "single-image layer decomposition",
+        "occlusion completion"
+      ],
+      "architectures": [
+        "latent diffusion",
+        "depth estimation"
+      ],
+      "base_models": [
+        "SDXL",
+        "Marigold"
+      ],
+      "training_methods": [
+        "bootstrapped supervision from Live2D assets",
+        "diffusion fine-tuning"
+      ],
+      "conditioning_methods": [
+        "semantic body-part conditioning",
+        "pseudo-depth conditioning"
+      ],
+      "relevance_score": 3,
+      "relevance_rationale": "Directly transferable editable-layer decomposition and hidden-region completion for stylized character compositing.",
+      "code_status": "official_full",
+      "implementation_coverage": "Official end-to-end PSD inference, training for LayerDiff/Marigold/VAE/body segmentation, released weights, data-preparation pipeline, and hosted demos. The underlying commercial-derived training corpus is not publicly distributed.",
+      "priority": "P1",
+      "primary_category": "05_Layered_Representation_and_Editable_Compositing",
+      "secondary_categories": [
+        "01_Geometry_and_Physical_Cue_Estimation"
+      ],
+      "pdf_status": "source_unavailable",
+      "pdf_path": "",
+      "pdf_source_url": "https://arxiv.org/pdf/2602.03749",
+      "pdf_source_type": "arxiv_fallback",
+      "pdf_sha256": "",
+      "pdf_downloaded_date": "",
+      "first_seen_date": "2026-08-26",
+      "last_verified_date": "2026-08-26",
+      "dedupe_keys": [
+        "doi:10.1145/3799902.3811209",
+        "arxiv:2602.03749",
+        "title:see through single image layer decomposition for anime characters"
+      ],
+      "report_path": "reports/2026-08-26.md",
+      "notes": "Verified: SIGGRAPH 2026 conference-paper identity from ACM proceedings; implementation surfaces from the official repository. Inference: relevance, priority, taxonomy, and implementation coverage are curator assessments. PDF binary retrieval was unavailable in the execution environment."
     }
   ]
 }
+

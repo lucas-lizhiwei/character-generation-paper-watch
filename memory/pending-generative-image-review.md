@@ -26,3 +26,15 @@ These candidates are non-formal. None may enter the corpus until an allowed main
 
 - Current evidence: ICLR 2026 submission record found; accepted main-track status was not established.
 - Needed: an official accepted decision/proceedings record. A submitted paper is not eligible.
+
+## CharacterShot: Controllable and Consistent 4D Character Animation
+
+- Current evidence: arXiv and an ICLR 2026 OpenReview submission whose PDF still states "under review"; official code, weights, and Character4D assets are available.
+- Unresolved gate: accepted main-track identity is not established. Code and model availability cannot substitute for acceptance evidence.
+- Needed: an official accepted ICLR decision/program/proceedings record, followed by a relevance recheck because the main contribution is 4D character animation.
+
+## AniGen: Unified S^3 Fields for Animatable 3D Asset Generation
+
+- Current evidence: SIGGRAPH 2026 official program confirms a Technical Paper, and the official repository provides code and weights.
+- Unresolved gate: relevance remains below or near the corpus threshold because the primary contribution is animatable 3D asset generation rather than a transferable 2D generative-image method.
+- Needed: a documented relevance score of at least 3 under the current scope before formal admission.

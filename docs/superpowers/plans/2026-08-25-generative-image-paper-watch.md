@@ -377,3 +377,4 @@ Push `refactor/generative-image-paper-watch` and create exactly one draft PR wit
 - [ ] **Step 6: Final evidence-backed handoff**
 
 Report deleted, rewritten, and added files; formal first-run papers and exclusions; exact validation counts; commit/PR links; installed skill path; and the fact that no scheduled task was created or modified.
+

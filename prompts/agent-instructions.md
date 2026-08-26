@@ -31,8 +31,11 @@ Evaluate venue eligibility before relevance. A relevant paper without verified e
 4. Add supplemental metadata and code status only after eligibility is established.
 5. Deduplicate using DOI, OpenReview/venue/arXiv identifiers, normalized titles and aliases, author overlap, method/project identity, and code-repository identity.
 6. Score relevance and record a concise rationale; unresolved acceptance, identity, or relevance belongs in pending notes.
-7. Update the formal index, seen/pending memory, run notes, and a dated report as applicable.
-8. Run `python skills/generative-image-paper-watch/scripts/validate_repository.py --repo .` and the full test suite before committing.
+7. Assign P1/P2/P3 priority and one primary PDF category; retrieve and verify one canonical PDF only after all formal gates pass.
+8. Update the formal index, PDF library, seen/pending memory, run notes, and a dated report as applicable.
+9. Run `python skills/generative-image-paper-watch/scripts/validate_repository.py --repo .` and the full test suite before committing.
+
+Prefer official proceedings or publisher PDFs, then accepted author copies, then arXiv fallback. Verify HTTP success, PDF signature and parseability, canonical identity, unique SHA-256, filename, and primary-category placement. A failed PDF download does not change formal paper count: keep the record formal, clear its path/hash/download date, set an explicit failure status, and log attempted endpoints and fallbacks.
 
 Each report should separate formal discoveries, important code/model updates, pending verification, notable exclusions, trends, search coverage, and limitations. Record failed or blocked sources in run notes; do not convert them into a claim of no results.
 

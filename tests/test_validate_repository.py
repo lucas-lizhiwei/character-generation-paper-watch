@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import importlib.util
 import json
 import subprocess
@@ -279,6 +280,100 @@ def test_rejects_a_missing_referenced_report(repository_factory):
     write_repository()
 
     assert any("report_path" in error for error in validate_repository(root))
+
+
+def test_accepts_a_verified_stored_pdf(repository_factory):
+    root, paper, write_repository = repository_factory
+    payload = b"%PDF-1.4\n%%EOF\n"
+    filename = (
+        "P1_2025_CVPR_LayeredLight- "
+        "Layered Light Control for Image Editing.pdf"
+    )
+    relative_path = (
+        "papers/03_Relighting_and_Illumination_Control/" + filename
+    )
+    pdf_path = root / relative_path
+    pdf_path.parent.mkdir(parents=True)
+    pdf_path.write_bytes(payload)
+    paper.update(
+        {
+            "pdf_status": "stored",
+            "pdf_path": relative_path,
+            "pdf_source_type": "official_proceedings",
+            "pdf_source_url": "https://openaccess.thecvf.com/paper.pdf",
+            "pdf_sha256": hashlib.sha256(payload).hexdigest(),
+            "pdf_downloaded_date": "2025-01-12",
+        }
+    )
+    write_repository()
+
+    assert validate_repository(root) == []
+
+
+def test_rejects_stored_pdf_with_missing_file(repository_factory):
+    root, paper, write_repository = repository_factory
+    paper.update(
+        {
+            "pdf_status": "stored",
+            "pdf_path": (
+                "papers/03_Relighting_and_Illumination_Control/"
+                "P1_2025_CVPR_LayeredLight- Layered Light Control for Image Editing.pdf"
+            ),
+            "pdf_source_type": "official_proceedings",
+            "pdf_sha256": "0" * 64,
+            "pdf_downloaded_date": "2025-01-12",
+        }
+    )
+    write_repository()
+
+    assert any("does not exist" in error for error in validate_repository(root))
+
+
+def test_rejects_pdf_metadata_on_failed_download(repository_factory):
+    root, paper, write_repository = repository_factory
+    paper["pdf_path"] = "papers/unexpected.pdf"
+    paper["pdf_sha256"] = "0" * 64
+    paper["pdf_downloaded_date"] = "2025-01-12"
+    write_repository()
+
+    errors = validate_repository(root)
+    assert any("pdf_path" in error and "unless" in error for error in errors)
+    assert any("pdf_sha256" in error and "unless" in error for error in errors)
+
+
+def test_rejects_pdf_in_wrong_category_and_with_bad_hash(repository_factory):
+    root, paper, write_repository = repository_factory
+    payload = b"%PDF-1.4\n%%EOF\n"
+    relative_path = (
+        "papers/08_Foundation_Models_and_Conditioning_Architectures/"
+        "P1_2025_CVPR_LayeredLight- Layered Light Control for Image Editing.pdf"
+    )
+    pdf_path = root / relative_path
+    pdf_path.parent.mkdir(parents=True)
+    pdf_path.write_bytes(payload)
+    paper.update(
+        {
+            "pdf_status": "stored",
+            "pdf_path": relative_path,
+            "pdf_source_type": "official_proceedings",
+            "pdf_sha256": "0" * 64,
+            "pdf_downloaded_date": "2025-01-12",
+        }
+    )
+    write_repository()
+
+    errors = validate_repository(root)
+    assert any("primary_category" in error for error in errors)
+    assert any("does not match stored PDF" in error for error in errors)
+
+
+def test_rejects_orphan_pdf(repository_factory):
+    root, _paper, _write_repository = repository_factory
+    orphan = root / "papers/08_Foundation_Models_and_Conditioning_Architectures/orphan.pdf"
+    orphan.parent.mkdir(parents=True)
+    orphan.write_bytes(b"%PDF-1.4\n%%EOF\n")
+
+    assert any("orphan PDF" in error for error in validate_repository(root))
 
 
 @pytest.mark.parametrize(
